@@ -1,0 +1,10 @@
+{
+  "$schema": "./node_modules/nx/schemas/workspace-schema.json",
+  "version": 2,
+  "projects": {
+    "api": "apps/api",
+    "api-interfaces": "libs/api-interfaces",
+    "fake-social": "apps/fake-social",
+    "fake-social-e2e": "apps/fake-social-e2e"
+  }
+}
