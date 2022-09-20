@@ -7,8 +7,8 @@ import './Home.css'
 const Home = () => {
   return (
     <div className='home-container'>
-      <NavBar/>
       <Feed/>
+      <NavBar/>
       <SideBar/>
       <Footer/>
     </div>

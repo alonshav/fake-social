@@ -2,9 +2,9 @@ import './NavBar.css'
 
 const NavBar = () => {
   return (
-    <div className='navbar'>
+    <nav className='navbar'>
       NavBar works!
-    </div>
+    </nav>
   );
 };
 
