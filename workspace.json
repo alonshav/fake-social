@@ -4,7 +4,6 @@
   "projects": {
     "api": "apps/api",
     "api-interfaces": "libs/api-interfaces",
-    "fake-social": "apps/fake-social",
-    "fake-social-e2e": "apps/fake-social-e2e"
+    "fake-social": "apps/fake-social"
   }
 }
