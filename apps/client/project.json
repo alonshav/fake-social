@@ -1,6 +1,6 @@
 {
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/fake-social/src",
+  "sourceRoot": "apps/client/src",
   "projectType": "application",
   "targets": {
     "build": {
@@ -9,17 +9,14 @@
       "defaultConfiguration": "production",
       "options": {
         "compiler": "babel",
-        "outputPath": "dist/apps/fake-social",
-        "index": "apps/fake-social/src/index.html",
+        "outputPath": "dist/apps/client",
+        "index": "apps/client/src/index.html",
         "baseHref": "/",
-        "main": "apps/fake-social/src/main.tsx",
-        "polyfills": "apps/fake-social/src/polyfills.ts",
-        "tsConfig": "apps/fake-social/tsconfig.app.json",
-        "assets": [
-          "apps/fake-social/src/favicon.ico",
-          "apps/fake-social/src/assets"
-        ],
-        "styles": ["apps/fake-social/src/styles.css"],
+        "main": "apps/client/src/main.tsx",
+        "polyfills": "apps/client/src/polyfills.ts",
+        "tsConfig": "apps/client/tsconfig.app.json",
+        "assets": ["apps/client/src/favicon.ico", "apps/client/src/assets"],
+        "styles": ["apps/client/src/styles.css"],
         "scripts": [],
         "webpackConfig": "@nrwl/react/plugins/webpack"
       },
@@ -33,8 +30,8 @@
         "production": {
           "fileReplacements": [
             {
-              "replace": "apps/fake-social/src/environments/environment.ts",
-              "with": "apps/fake-social/src/environments/environment.prod.ts"
+              "replace": "apps/client/src/environments/environment.ts",
+              "with": "apps/client/src/environments/environment.prod.ts"
             }
           ],
           "optimization": true,
@@ -50,16 +47,16 @@
       "executor": "@nrwl/webpack:dev-server",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "fake-social:build",
+        "buildTarget": "client:build",
         "hmr": true,
-        "proxyConfig": "apps/fake-social/proxy.conf.json"
+        "proxyConfig": "apps/client/proxy.conf.json"
       },
       "configurations": {
         "development": {
-          "buildTarget": "fake-social:build:development"
+          "buildTarget": "client:build:development"
         },
         "production": {
-          "buildTarget": "fake-social:build:production",
+          "buildTarget": "client:build:production",
           "hmr": false
         }
       }
@@ -68,14 +65,14 @@
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["apps/fake-social/**/*.{ts,tsx,js,jsx}"]
+        "lintFilePatterns": ["apps/client/**/*.{ts,tsx,js,jsx}"]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/fake-social"],
+      "outputs": ["coverage/apps/client"],
       "options": {
-        "jestConfig": "apps/fake-social/jest.config.ts",
+        "jestConfig": "apps/client/jest.config.ts",
         "passWithNoTests": true
       }
     }
