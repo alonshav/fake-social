@@ -1,4 +1,4 @@
-import {IPost} from "../../../../../libs/api-interfaces/src/lib/model-interfaces/IPost";
+import {IPost} from "@fake-social/api-interfaces";
 
 export const POSTS: IPost[] = [
   {

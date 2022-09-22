@@ -1,5 +1,5 @@
 import React from 'react';
-import { IPost } from '../../../types/models/IPost';
+import { IPost } from '../../../../../../../libs/api-interfaces/src/lib/model-interfaces/IPost';
 import './Post.css';
 
 interface PostProps {
