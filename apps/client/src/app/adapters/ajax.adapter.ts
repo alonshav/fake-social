@@ -1,5 +1,5 @@
 import axios, {Method} from "axios";
-import {IAjaxResponse, IRequestParams} from "@fake-social/api-interfaces";
+import { IAjaxResponse, IRequestParams } from '../../../../../libs/api-interfaces/src';
 
 export class AjaxAdapter {
   async request<T>({
@@ -10,12 +10,12 @@ export class AjaxAdapter {
                      headers,
                    }: IRequestParams): Promise<IAjaxResponse<T | null>> {
     method = method.toLowerCase() as Method
-    let data
+    let response
     try {
-      data = (await axios({method, url, data: body, headers})).data
-      return {data, error: null}
+      response = (await axios({method, url, data: body, headers})).data
+      return {response: response, error: null}
     } catch (error) {
-      return {data: null, error}
+      return {response: null, error}
     }
   }
 
@@ -31,7 +31,7 @@ export class AjaxAdapter {
     try {
       token = await getToken()
     } catch (error) {
-      return {data: null, error}
+      return {response: null, error}
     }
 
     return this.request({

@@ -1,6 +1,6 @@
 import * as express from 'express';
 import * as cors from 'cors';
-import postsRouter from "./routes/posts";
+import postsRouter from "./routes/posts.router";
 
 const app = express();
 app.use(cors());
