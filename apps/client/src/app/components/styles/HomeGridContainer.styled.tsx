@@ -2,8 +2,9 @@ import styled from 'styled-components';
 
 export const HomeGridContainer = styled.div`
   display: grid;
-  grid-gap: 10px;
+  grid-gap: 15px;
+  padding: 15px 70px;
   height: 100%;
-  grid-template-rows: 60px 1fr 100px;
-  grid-template-columns: 100px 2fr;
+  grid-template-rows: 1fr;
+  grid-template-columns: 2fr 6fr 3fr;
 `

@@ -7,11 +7,12 @@ interface ButtonProps {
   disabled?: boolean;
   text?: string;
   onClick?: (_: any) => any;
+  className?:string
 }
 
-const Button: React.FC<ButtonProps> = ({ children, text }) => {
+const Button: React.FC<ButtonProps> = ({children,className, text }) => {
   return (
-    <StyledButton>
+    <StyledButton className={className && className}>
       {children}
     </StyledButton>
   );

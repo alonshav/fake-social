@@ -10,7 +10,7 @@ function Posts() {
 
   return (
     <StyledPosts>
-      {posts.map((post) => <li key={post.id}><Post post={post}/></li>)}
+      {posts.map((post) => <li key={post.id}><Post post={post} /></li>)}
     </StyledPosts>
   );
 }

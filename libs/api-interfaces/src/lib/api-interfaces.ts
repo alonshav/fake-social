@@ -59,9 +59,11 @@ export type PostsAction =
 export interface IPost {
   author_nickName: string;
   author_fullName: string;
+  author_picture?: string
   title: string;
   topic: string;
-  content: string;
+  text: string;
+  image?:string
   id: string;
   saved: boolean;
   ups: number;

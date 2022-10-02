@@ -2,6 +2,8 @@
 export interface INavItem {
   title: string,
   iconType: string,
+  image?:string
+  onClick?:()=>any
   route: string
 }
 
@@ -17,8 +19,9 @@ export const NavigationMenu: INavItem[] = [
     route: 'network'
   },
   {
-    title: 'Account',
-    iconType: 'account',
-    route: 'account'
+    title: 'Me',
+    route: 'account',
+    iconType: 'image',
+    image:'https://www.w3schools.com/w3css/img_lights.jpg'
   },
 ];

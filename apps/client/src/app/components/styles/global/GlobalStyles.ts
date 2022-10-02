@@ -13,16 +13,18 @@ const GlobalStyles = createGlobalStyle`
 
   body {
     height: 100%;
-    background-color: ${({ theme }:ThemeProps<any>) => theme.backgroundColor.body};
-    color: hsl(0, 0%, 19%);
+    background-color: ${({ theme }:ThemeProps<any>) => theme.background.body};
+    color: ${({ theme }:ThemeProps<any>) => theme.color['black-main']};;
     font-size: 1.15em;
-    font-family: Roboto, sans-serif;
+    font-family: ${({ theme }) => theme.fonts.main};
     margin: 0;
   }
 
   p {
+    font-size: 1.2rem;
     font-weight: 300;
     font-family: Roboto;
+    word-spacing: 3px;
   }
 `
 export default GlobalStyles

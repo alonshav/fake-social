@@ -1,15 +1,16 @@
 import { INavItem } from './navBar.config';
 import Icon from '../../common/Icon/Icon';
-import Button from '../../common/Button/Button';
+import { StyledNavButton } from '../../styles/NavButton.styled';
 
 interface Props {
-  navItem:INavItem
+  item: INavItem;
 }
-export const NavButton = ({navItem}:Props) => {
+
+export const NavButton = ({ item }: Props) => {
   return (
-    <Button>
-      <Icon type={navItem.iconType} height='30px'/>
-      <span>{navItem.title}</span>
-    </Button>
+    <StyledNavButton>
+      <Icon type={item.iconType} height='30px' width='30px' image={item.image} />
+      <span className='icon-text'>{item.title}</span>
+    </StyledNavButton>
   );
 };

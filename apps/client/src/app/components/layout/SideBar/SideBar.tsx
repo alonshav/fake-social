@@ -1,8 +1,15 @@
 import React from 'react';
-import './SideBar.css';
+import { SideBarStyled } from '../../styles/SideBar.styled';
 
-const SideBar = () => {
-  return <div className="sidebar">SideBar works!</div>;
-};
+interface Props {
+  children:React.ReactNode
+}
+const SideBar = ({children}:Props) => {
+  return (
+    <SideBarStyled>
+      {children}
+    </SideBarStyled>
+  )
+}
 
-export default SideBar;
+export default SideBar

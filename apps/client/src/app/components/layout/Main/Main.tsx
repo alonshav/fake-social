@@ -1,12 +1,12 @@
 import React from 'react';
 import Feed from '../../features/Feed/Feed';
-import { MainContainer } from '../../styles/MainContainer';
+import { MainContainerStyled } from '../../styles/MainContainer.styled';
 
 function Main() {
   return (
-    <MainContainer>
+    <MainContainerStyled>
       <Feed/>
-    </MainContainer>
+    </MainContainerStyled>
   );
 }
 
