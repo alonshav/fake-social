@@ -2,6 +2,7 @@ import React, { createContext, useContext, useEffect, useReducer } from 'react';
 import { IPost, LoadingStatus, PostsAction, PostsState } from '@types';
 import axios from 'axios';
 import { reloadPosts } from './PostsActionCreators';
+import { PostModel } from '../../../../models/Post.model';
 
 
 const PostsContext = createContext<IPost[]>([]);
@@ -24,7 +25,10 @@ function PostsProvider({ children }: Props) {
   useEffect(() => {
     axios.get('http://localhost:3333/api/posts')
       .then((res) => {
-        dispatch(reloadPosts(res.data));
+        const posts = res.data.map((post:IPost) => {
+          return new PostModel(post);
+        })
+        dispatch(reloadPosts(posts));
       });
   }, []);
 

@@ -11,7 +11,7 @@ export const NavigationMenu: INavItem[] = [
   {
     title: 'Home',
     iconType: 'home',
-    route: 'home'
+    route: '/home'
   },
   {
     title: 'Network',

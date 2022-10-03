@@ -8,11 +8,12 @@ interface ButtonProps {
   text?: string;
   onClick?: (_: any) => any;
   className?:string
+  type?: "button" | "submit" | "reset" | undefined
 }
 
-const Button: React.FC<ButtonProps> = ({children,className, text }) => {
+const Button: React.FC<ButtonProps> = ({children,className, text,type }) => {
   return (
-    <StyledButton className={className && className}>
+    <StyledButton className={className && className} type={type}>
       {children}
     </StyledButton>
   );

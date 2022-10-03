@@ -1,9 +1,7 @@
 import React from 'react';
 import { IPost } from '@types';
 import { PostHeader } from '../../styles/PostHeader.styled';
-import { CardFooter } from '../../styles/CardFooter.styled';
 import Button from '../Button/Button';
-import Card from '../Card/Card';
 import ActionBar from '../ActionBar/ActionBar';
 import { PostContent } from '../../styles/PostContent.styled';
 import { PostFooter } from '../../styles/PostFooter';

@@ -13,7 +13,7 @@ export const StyledSearchBar = styled.div`
     align-items: center;
     justify-content: flex-start;
     border: none;
-    border-radius: 10px 0 0 10px;
+    border-radius: 20px 0 0 20px;
     background: #e0e0e0;
     min-height: 40px;
     font-size: 1.5rem;
@@ -21,9 +21,9 @@ export const StyledSearchBar = styled.div`
   }
   .searchBar {
     justify-content: flex-start;
-    min-width: 400px;
+    width: 60%;
     border: none;
-    border-radius: 0 10px 10px 0;
+    border-radius: 0 20px 20px 0;
     background: #e0e0e0;
     min-height: 40px;
     font-size: 1rem;

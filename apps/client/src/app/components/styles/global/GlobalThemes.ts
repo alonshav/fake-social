@@ -1,13 +1,8 @@
-interface LightMode {
-  color: { 'main-black': string };
-  background: { navbar: string; footer: string; body: string };
-  lines: { light: string };
-  fonts: {main: string};
-}
-
-export const lightMode: LightMode = {
-  color:{
-    'main-black': 'hsl(0, 0%, 19%)'
+export const lightMode = {
+  color: {
+    'main-black': `hsl(0, 0%, 19%)`,
+    'highlight': `rgba(0, 0, 255, 0.66)`,
+    'active': `rgba(0, 0, 147, 0.66)`
   },
   background: {
     body: '#F3F2EF',
@@ -15,7 +10,7 @@ export const lightMode: LightMode = {
     footer: '#003333'
   },
   lines: {
-    "light":'#dadada'
+    'light': '#dadada'
   },
   fonts: {
     main: 'Roboto, sans-serif'

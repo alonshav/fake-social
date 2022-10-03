@@ -9,7 +9,6 @@ import RightSideBar from '../../layout/SideBar/RightSideBar';
 const Home = () => {
   return (
     <>
-      <NavBar />
       <HomeGridContainer>
         <LeftSideBar/>
           <Feed />

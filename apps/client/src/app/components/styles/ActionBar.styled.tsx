@@ -7,6 +7,7 @@ export const StyledActionBar = styled.div`
   justify-content: center;
   width: 100%;
   height: 100%;
+  padding-top: 1rem;
   .icon{
     font-size: 30px;
   }

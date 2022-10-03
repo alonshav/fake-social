@@ -1,15 +1,21 @@
 import { StyledNavBar } from '../../styles/NavBar.styled';
-import NavButtons from './NavButtons';
+import NavLinks from './NavLinks';
 import SearchBar from '../../common/SearchBar/SearchBar';
 
-const NavBar = () => {
-  return (
-    <StyledNavBar>
-      <h1>Fake Social</h1>
-      <SearchBar/>
-      <NavButtons/>
-    </StyledNavBar>
-  );
+interface NavBarProps {
+  isLoggedIn: boolean;
+}
+
+const NavBar = ({ isLoggedIn }: NavBarProps) => {
+  return (isLoggedIn
+    ? (
+      <StyledNavBar>
+        <h1>Fake Social</h1>
+        <SearchBar />
+        <NavLinks />
+      </StyledNavBar>
+    )
+    : null)
 };
 
 export default NavBar;
