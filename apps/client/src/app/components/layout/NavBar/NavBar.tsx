@@ -1,4 +1,4 @@
-import { StyledNavBar } from '../../styles/NavBar.styled';
+import { StyledNavBar } from '../../../styles/NavBar.styled';
 import NavLinks from './NavLinks';
 import SearchBar from '../../common/SearchBar/SearchBar';
 

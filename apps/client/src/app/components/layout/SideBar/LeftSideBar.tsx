@@ -1,7 +1,7 @@
 import { LeftSideBarMenu } from './sideBar.config';
 import SideBarCard from '../../common/SideBarCard/SideBarCard';
 import React from 'react';
-import { LeftSideBarStyled } from '../../styles/LeftSideBar.styled';
+import { LeftSideBarStyled } from '../../../styles/LeftSideBar.styled';
 
 function LeftSideBar() {
   return (

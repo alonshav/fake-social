@@ -42,30 +42,57 @@ export enum LoadingStatus {
   idle = 'IDLE'
 }
 
-export interface PostsState {
-  posts: IPost[],
-  loadingState: LoadingStatus,
-  error: Error | null
-}
+export type PostsState = IPost[]
 
 export type PostsAction =
-  { type: 'ADD_POST'; payload: IPost}
+  { type: 'ADD_POST'; payload: IPost }
   | { type: 'DELETE_POST'; payload: IPost }
   | { type: 'UPDATE_POST'; payload: IPost }
-  | { type: 'RELOAD_POSTS'; payload: IPost[]}
+  | { type: 'RELOAD_POSTS'; payload: IPost[] }
   | { type: 'RESET_LIST' }
 
+export type PostId = string
+
+export interface Author {
+  nick_name: string;
+  full_name: string;
+  author_id: string;
+  profile_picture?: string;
+}
+
+export type Reaction = 'like'
 
 export interface IPost {
-  author_nickName: string;
-  author_fullName: string;
-  author_picture?: string
-  title: string;
-  topic: string;
+  author: Author;
+  title?: string;
+  topic?: string;
   text: string;
-  image?:string
-  id: string;
-  saved: boolean;
+  image?: string;
   ups: number;
-  visited: boolean;
+  id: PostId;
+  createdAt: string;
+  reactions: Record<Reaction, number>;
+  isUserReacted: boolean
 }
+
+export type UserId = string
+
+export interface IUser {
+  id: UserId;
+  nick_name: string;
+  full_name: string;
+  profile_picture?: string;
+  createdAt: string;
+}
+
+type PostCommentId = string
+
+interface PostComment {
+  id: PostCommentId;
+  nick_name: string;
+  full_name: string;
+  profile_picture?: string;
+  text: string;
+  image?: string;
+}
+

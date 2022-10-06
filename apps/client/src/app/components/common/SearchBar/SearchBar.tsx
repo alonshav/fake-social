@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyledSearchBar } from '../../styles/StyledSearchBar.styled';
+import { StyledSearchBar } from '../../../styles/StyledSearchBar.styled';
 
 function SearchBar() {
   return (

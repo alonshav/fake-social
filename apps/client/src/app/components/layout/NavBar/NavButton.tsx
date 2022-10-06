@@ -1,10 +1,10 @@
 import { INavItem } from './navBar.config';
 import Icon from '../../common/Icon/Icon';
-import { StyledNavButton } from '../../styles/NavButton.styled';
+import { StyledNavButton } from '../../../styles/Buttons/NavButton.styled';
 
 interface Props {
   item: INavItem;
-  className: string;
+  className?: string;
 }
 
 export const NavButton = ({ item, className }: Props) => {
