@@ -1,9 +1,9 @@
 import React from 'react';
 import { ISideBarCard } from '../../layout/SideBar/sideBar.config';
-import Card from '../Card/Card';
-import { PostHeader } from '../../styles/PostHeader.styled';
-import { CardContent } from '../../styles/CardContent.styled';
-import { CardFooter } from '../../styles/CardFooter.styled';
+import { PostHeader } from '../../../styles/PostHeader.styled';
+import { CardContent } from '../../../styles/CardContent.styled';
+import { CardFooter } from '../../../styles/CardFooter.styled';
+import { Card } from '../../../styles/Card.styled';
 
 interface Props {
   sideBarCard:ISideBarCard
