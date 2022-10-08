@@ -37,12 +37,16 @@ export type FetchAction =
 
 export enum LoadingStatus {
   loading = 'LOADING',
-  success = 'SUCCESS',
+  succeeded = 'SUCCEEDED',
   failed = 'FAILED',
   idle = 'IDLE'
 }
 
-export type PostsState = IPost[]
+export type PostsState = {
+  list: IPost[]
+  loadingStatus: LoadingStatus,
+  error: string | null
+}
 
 export type PostsAction =
   { type: 'ADD_POST'; payload: IPost }
@@ -72,7 +76,7 @@ export interface IPost {
   id: PostId;
   createdAt: string;
   reactions: Record<Reaction, number>;
-  isUserReacted: boolean
+  isUserReacted: boolean;
 }
 
 export type UserId = string

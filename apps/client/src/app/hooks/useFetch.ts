@@ -42,7 +42,7 @@ function fetchReducer(currentState: FetchState, action: FetchAction): FetchState
       };
     case 'RESOLVE':
       return {
-        loadingStatus: LoadingStatus.success,
+        loadingStatus: LoadingStatus.succeeded,
         data: action.payload,
         error: null
       };

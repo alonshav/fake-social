@@ -4,7 +4,7 @@ import { v4 as uuid } from 'uuid';
 
 export const addPostReducer = {
   reducer(posts: PostsState, action: PayloadAction<IPost>) {
-    posts.unshift(action.payload);
+    posts.list.unshift(action.payload);
   },
   prepare(author: Author, text: string) {
     return {
@@ -25,7 +25,7 @@ export const addPostReducer = {
 
 export const toggleReactionReducer = (posts: PostsState, action: PayloadAction<{ id: PostId, reaction: Reaction }>) => {
   const { id, reaction } = action.payload;
-  const selectedPost = posts.find(post => post.id === id);
+  const selectedPost = posts.list.find(post => post.id === id);
 
   if (!selectedPost) return posts;
 
