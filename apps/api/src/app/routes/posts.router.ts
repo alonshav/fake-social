@@ -1,10 +1,10 @@
 import * as express from 'express';
-import {PostsMock} from "../mocks/posts.mock";
+import { POSTS } from '../../mocks/POSTS';
 
 const postsRouter = express.Router();
 
 postsRouter.get('/', (req, res, next) => {
-  res.send(PostsMock)
+  res.send(POSTS)
   next()
 })
 

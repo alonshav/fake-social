@@ -9,10 +9,12 @@ export interface UserState {
 const initialState: UserState = {
   currentUser: {
     id: '01',
-    nick_name: 'Beitz',
-    full_name: 'Alon Shavit',
-    profile_picture: 'https://www.w3schools.com/w3css/img_lights.jpg',
-    createdAt: new Date().toISOString()
+    nickName: 'Beitz',
+    firstName: 'Alon',
+    lastName: 'Shavit',
+    profilePicture: 'https://www.w3schools.com/w3css/img_lights.jpg',
+    createdAt: new Date().toISOString(),
+    role: 'user'
   }
 };
 
@@ -35,4 +37,4 @@ export default userSlice.reducer;
 export const { loadUser } = userSlice.actions;
 
 //Selectors
-export const selectCurrentUser = (state:RootState) => state.user.currentUser;
+export const selectCurrentUser = (state: RootState) => state.user.currentUser;

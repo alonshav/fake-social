@@ -7,22 +7,24 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import NavBar from './components/layout/NavBar/NavBar';
 import React from 'react';
 import SinglePostPage from './pages/SinglePostPage/SinglePostPage';
+import Register from './pages/Register/Register';
 
 export const App = () => {
   return (
     <ThemeProvider theme={lightMode}>
-      <GlobalStyles/>
-        <Router>
-          <NavBar isLoggedIn={true} />
-          <Routes>
-            <Route path='/' element={<Navigate to='/home' />} />
-            <Route path='/home' element={<Home />} />
-            <Route path='/login' element={<Login />} />
-            <Route path='/posts'>
-              <Route path=':postId' element={<SinglePostPage/>}/>
-            </Route>
-          </Routes>
-        </Router>
+      <GlobalStyles />
+      <Router>
+        <NavBar isLoggedIn={true} />
+        <Routes>
+          <Route path='/' element={<Navigate to='/home' />} />
+          <Route path='/home' element={<Home />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/register' element={<Register />} />
+          <Route path='/posts'>
+            <Route path=':postId' element={<SinglePostPage />} />
+          </Route>
+        </Routes>
+      </Router>
     </ThemeProvider>
   );
 };

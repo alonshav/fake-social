@@ -25,9 +25,9 @@ export const PostAdd = () => {
   const onPublishPost = (currentUser:IUser) => {
 
     const author = {
-      nick_name: currentUser.nick_name,
-      full_name: currentUser.full_name,
-      profile_picture: currentUser.profile_picture,
+      nickName: currentUser.nickName,
+      firstName: currentUser.firstName,
+      profilePicture: currentUser.profilePicture,
       author_id: currentUser.id
     };
 

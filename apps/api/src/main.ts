@@ -1,15 +1,54 @@
 import * as express from 'express';
 import * as cors from 'cors';
-import postsRouter from "./routes/posts.router";
+import * as session from 'express-session';
+import * as passport from 'passport';
+import * as morgan from 'morgan';
+
+import postsRouter from './app/routes/posts.router';
+import authRouter from './app/routes/auth.router';
+
 
 const app = express();
-app.use(cors());
-
-app.use('/api/posts', postsRouter);
-
 const port = process.env.port || 3333;
+const store = new session.MemoryStore(); // Session Store
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(morgan('tiny'));
+
+
+//Cors
+app.use(cors({
+  origin: 'http://localhost:4200',
+  methods: ['POST', 'PUT', 'GET', 'OPTIONS', 'HEAD'],
+  credentials: true
+}));
+
+//Session
+app.use(session({
+  secret: 'SESS_SECRET',
+  store: store,
+  saveUninitialized: false,
+  resave: false,
+  cookie: {
+    sameSite: false,
+    secure: process.env.NODE_ENV === 'production',
+    maxAge: 60000,
+    httpOnly: true
+  }
+}));
+
+//Passport
+app.use(passport.initialize());
+app.use(passport.session());
+
+//Routes
+app.use('/api/posts', postsRouter);
+app.use('/api/auth', authRouter);
+
 
 const server = app.listen(port, () => {
   console.log('Listening at http://localhost:' + port);
 });
+
 server.on('error', console.error);

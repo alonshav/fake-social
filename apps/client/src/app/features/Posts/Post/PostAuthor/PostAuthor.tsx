@@ -11,8 +11,8 @@ interface PostAuthor{
 function PostAuthor({post}:PostAuthor) {
   return (
     <StyledPostAuthor>
-      <ProfilePicture userPicture={post.author.profile_picture} userNickname={post.author.nick_name} />
-      <AuthorDetails userName={post.author.full_name} userNickName={post.author.nick_name} />
+      <ProfilePicture userPicture={post.author.profilePicture} userNickname={post.author.nickName} />
+      <AuthorDetails userName={post.author.firstName} userNickName={post.author.nickName} />
     </StyledPostAuthor>
   );
 }

@@ -58,10 +58,10 @@ export type PostsAction =
 export type PostId = string
 
 export interface Author {
-  nick_name: string;
-  full_name: string;
+  nickName: string;
+  firstName: string;
   author_id: string;
-  profile_picture?: string;
+  profilePicture?: string;
 }
 
 export type Reaction = 'like'
@@ -80,23 +80,39 @@ export interface IPost {
 }
 
 export type UserId = string
+export type UserRole = 'user' | 'admin'
 
 export interface IUser {
   id: UserId;
-  nick_name: string;
-  full_name: string;
-  profile_picture?: string;
+  nickName: string;
+  firstName: string;
+  lastName: string;
+  profilePicture?: string;
   createdAt: string;
+  role: UserRole
 }
+
+export type LoginId = string;
+
+export interface ILogin {
+  id: LoginId;
+  nickName: string;
+  passwordHash: string;
+  passwordSalt: string;
+  RelatedUserId: UserId;
+}
+
 
 type PostCommentId = string
 
 interface PostComment {
   id: PostCommentId;
-  nick_name: string;
-  full_name: string;
-  profile_picture?: string;
+  nickName: string;
+  firstName: string;
+  profilePicture?: string;
   text: string;
   image?: string;
 }
+
+
 

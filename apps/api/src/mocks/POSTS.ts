@@ -1,11 +1,11 @@
 import { IPost } from '@types';
 
-export const PostsMock: IPost[] = [
+export const POSTS: IPost[] = [
   {
     author: {
-      nick_name: 'Beitz',
-      full_name: 'Alon Shavit',
-      profile_picture: 'https://www.w3schools.com/w3css/img_lights.jpg',
+      nickName: 'Beitz',
+      firstName: 'Alon Shavit',
+      profilePicture: 'https://www.w3schools.com/w3css/img_lights.jpg',
       author_id: 'asdfa11s'
     },
     reactions:{
@@ -22,9 +22,9 @@ export const PostsMock: IPost[] = [
   },
   {
     author: {
-      nick_name: 'Tut',
-      full_name: 'Reut Shavit',
-      profile_picture: 'https://images.unsplash.com/photo-1448873897790-40ede9ce481d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+      nickName: 'Tut',
+      firstName: 'Reut Shavit',
+      profilePicture: 'https://images.unsplash.com/photo-1448873897790-40ede9ce481d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
       author_id: 'asdf11a11s'
     },
     reactions:{
@@ -42,9 +42,9 @@ export const PostsMock: IPost[] = [
 
   {
     author: {
-      nick_name: 'Tatti',
-      full_name: 'Nina Shavit',
-      profile_picture: 'https://www.w3schools.com/w3css/img_lights.jpg',
+      nickName: 'Tatti',
+      firstName: 'Nina Shavit',
+      profilePicture: 'https://www.w3schools.com/w3css/img_lights.jpg',
       author_id: 'asdf11a11s'
     },
     reactions:{
@@ -60,9 +60,9 @@ export const PostsMock: IPost[] = [
   },
   {
     author: {
-      nick_name: 'NMC',
-      full_name: 'Noam Cohen',
-      profile_picture: 'https://www.w3schools.com/w3css/img_lights.jpg',
+      nickName: 'NMC',
+      firstName: 'Noam Cohen',
+      profilePicture: 'https://www.w3schools.com/w3css/img_lights.jpg',
       author_id: 'asdf11a11s'
     },
     reactions:{
@@ -78,9 +78,9 @@ export const PostsMock: IPost[] = [
   },
   {
     author: {
-      nick_name: 'Pit',
-      full_name: 'Ben Litman',
-      profile_picture: 'https://images.unsplash.com/photo-1448873897790-40ede9ce481d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+      nickName: 'Pit',
+      firstName: 'Ben Litman',
+      profilePicture: 'https://images.unsplash.com/photo-1448873897790-40ede9ce481d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
       author_id: 'asdsf11a1111s'
     },
     reactions:{
