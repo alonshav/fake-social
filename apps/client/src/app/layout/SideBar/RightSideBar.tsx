@@ -1,8 +1,8 @@
 import SideBar from './SideBar';
 import { RightSideBarMenu } from './sideBar.config';
-import SideBarCard from '../../common/SideBarCard/SideBarCard';
+import SideBarCard from '../../components/common/SideBarCard/SideBarCard';
 import React from 'react';
-import { RightSideBarStyled } from '../../../styles/RightSideBar.styled';
+import { RightSideBarStyled } from '../../styles/RightSideBar.styled';
 
 function RightSideBar() {
   return (

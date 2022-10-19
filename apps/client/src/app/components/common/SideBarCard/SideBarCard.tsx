@@ -1,5 +1,5 @@
 import React from 'react';
-import { ISideBarCard } from '../../layout/SideBar/sideBar.config';
+import { ISideBarCard } from '../../../layout/SideBar/sideBar.config';
 import { PostHeader } from '../../../styles/PostHeader.styled';
 import { CardContent } from '../../../styles/CardContent.styled';
 import { CardFooter } from '../../../styles/CardFooter.styled';

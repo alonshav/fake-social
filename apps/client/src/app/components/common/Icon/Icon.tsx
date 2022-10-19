@@ -4,6 +4,7 @@ import { ReactComponent as HomeIcon } from '../../../../assets/icons/home-icon.s
 import { ReactComponent as NetworkIcon } from '../../../../assets/icons/network-icon.svg';
 import { ReactComponent as LoveIcon } from '../../../../assets/icons/love-icon.svg';
 import { ReactComponent as SearchIcon } from '../../../../assets/icons/search-icon.svg';
+import { ReactComponent as LogoutIcon } from '../../../../assets/icons/logout-icon.svg';
 import styled from 'styled-components';
 
 
@@ -22,6 +23,14 @@ const getIconByType = ({ type, height, width, image }: Props) => {
     case 'home': {
       return (
         <HomeIcon
+          className='icon'
+          height={height}
+        />
+      );
+    }
+    case 'logout': {
+      return (
+        <LogoutIcon
           className='icon'
           height={height}
         />

@@ -87,6 +87,7 @@ export interface IUser {
   nickName: string;
   firstName: string;
   lastName: string;
+  email:string;
   profilePicture?: string;
   createdAt: string;
   role: UserRole
@@ -94,7 +95,7 @@ export interface IUser {
 
 export type LoginId = string;
 
-export interface ILogin {
+export interface IUserLogin {
   id: LoginId;
   nickName: string;
   passwordHash: string;

@@ -3,19 +3,11 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../../store/store';
 
 export interface UserState {
-  currentUser: IUser;
+  current: IUser | null;
 }
 
 const initialState: UserState = {
-  currentUser: {
-    id: '01',
-    nickName: 'Beitz',
-    firstName: 'Alon',
-    lastName: 'Shavit',
-    profilePicture: 'https://www.w3schools.com/w3css/img_lights.jpg',
-    createdAt: new Date().toISOString(),
-    role: 'user'
-  }
+  current: null
 };
 
 
@@ -23,8 +15,11 @@ const userSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {
-    loadUser(user, action: PayloadAction<IUser>) {
-      user.currentUser = action.payload;
+    loadUser(user: UserState, action: PayloadAction<IUser>) {
+      user.current = action.payload;
+    },
+    clearUser(user: UserState) {
+      user.current = null;
     }
   }
 });
@@ -34,7 +29,7 @@ const userSlice = createSlice({
 export default userSlice.reducer;
 
 //Actions
-export const { loadUser } = userSlice.actions;
+export const { loadUser, clearUser } = userSlice.actions;
 
 //Selectors
-export const selectCurrentUser = (state: RootState) => state.user.currentUser;
+export const selectCurrentUser = (state: RootState) => state.user.current;

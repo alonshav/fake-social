@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 import Post from '../Post/Post';
 import { StyledPostsList } from '../../../styles/Posts.styled';
-import { useAppSelector } from '../../../hooks/useAppSelector';
+import { useAppSelector } from '../../../hooks/store/useAppSelector';
 import { fetchPosts, selectAllPosts } from '../postsSlice';
 import { useNavigate } from 'react-router-dom';
-import { useAppDispatch } from '../../../hooks/useAppDispatch';
+import { useAppDispatch } from '../../../hooks/store/useAppDispatch';
 import { LoadingStatus } from '@types';
 import { parseForESLint } from '@typescript-eslint/parser';
 
