@@ -9,7 +9,7 @@ function NavLinks() {
 
   return (
     <StyledNavLinks>
-      {navigationMenu.map((navItem, index) => <NavItem navItem={navItem}/>)}
+      {navigationMenu.map((navItem, index) => <NavItem navItem={navItem} key={navItem.title}/>)}
     </StyledNavLinks>
   );
 }

@@ -4,6 +4,7 @@ import Icon from '../Icon/Icon';
 import { StyledDropdownMenu } from '../../../styles/DropdownMenu.styled';
 import { useAppDispatch } from '../../../hooks/store/useAppDispatch';
 import { clearUser } from '../../../features/User/userSlice';
+import axios from 'axios';
 
 
 
@@ -11,9 +12,11 @@ const DropdownMenu = React.forwardRef((props,ref:React.Ref<HTMLDivElement>) => {
 
   const dispatch = useAppDispatch();
 
-  const handleLogout = () => {
+  const handleLogout = async () => {
     dispatch(clearUser());
     localStorage.clear();
+    const res = await axios.get('http://localhost:3333/api/auth/logout')
+    console.log('res:', res);
   };
 
   return (

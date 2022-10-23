@@ -6,7 +6,6 @@ import ProfilePicture from '../../../components/common/ProfilePicture/ProfilePic
 import { StyledPublishAPostButton } from '../../../styles/PublishAPostButton.styled';
 import { useAppSelector } from '../../../hooks/store/useAppSelector';
 import { selectCurrentUser } from '../../User/userSlice';
-import { IUser } from '@types';
 
 
 export const PostAdd = () => {
@@ -24,13 +23,14 @@ export const PostAdd = () => {
 
   const handlePublish = () => {
     if (currentUser) {
+      console.log('currentUser:', currentUser);
       const author = {
         nickName: currentUser.nickName,
         firstName: currentUser.firstName,
         profilePicture: currentUser.profilePicture,
         author_id: currentUser.id
       };
-
+      console.log('author:', author);
       dispatch(addPost(author, 'Waduuup'));
     }
   };
@@ -38,8 +38,7 @@ export const PostAdd = () => {
   return (
     <StyledAddPostCard>
       <ProfilePicture userPicture={'https://www.w3schools.com/w3css/img_lights.jpg'} userNickname={'Beitz'} />
-      <StyledPublishAPostButton type='button' onClick={handlePublish}>Start a new
-        post</StyledPublishAPostButton>
+      <StyledPublishAPostButton type='button' onClick={handlePublish}>Start a new post</StyledPublishAPostButton>
     </StyledAddPostCard>
   )
     ;

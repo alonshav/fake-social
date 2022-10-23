@@ -13,19 +13,19 @@ const authRouter = express.Router();
 
 authRouter.post('/login', passport.authenticate('local'), (req, res, next) => {
   console.log('******** login successful ********');
-  if(req.isAuthenticated()){
+  if (req.isAuthenticated()) {
     res.status(200).send({ user: req.user });
   }
   next();
 });
 
 
-authRouter.post('/logout', (req, res, next) => {
+authRouter.get('/logout', (req, res, next) => {
   req.logout(function(err) {
     if (err) {
       return next(err);
     }
-    res.redirect('/');
+    res.status(200).json({ msg: 'logged out successfully' });
   });
 });
 
@@ -33,16 +33,15 @@ authRouter.post('/register', async (req, res, next) => {
   const { nickName, firstName, lastName, password, email } = req.body;
 
   const passwordHash = await bcrypt.hash(password, 10);
-  const passwordSalt = 'salt'
-  const userId = uuid()
+  const passwordSalt = await bcrypt.genSalt(10);
+  const userId = uuid();
 
   const existingNickName = USERS.find(user => (nickName === user.nickName));
   const existingEmail = USERS.find(user => (nickName === user.nickName));
 
   if (existingNickName) {
-    res.status(500).send('NickName already exists')
-  }
-  else if (existingEmail) {
+    res.status(500).send('NickName already exists');
+  } else if (existingEmail) {
     res.status(500).send('Email already exists');
   }
 
@@ -52,7 +51,7 @@ authRouter.post('/register', async (req, res, next) => {
     RelatedUserId: userId,
     nickName,
     passwordHash,
-    passwordSalt,
+    passwordSalt
   };
 
   const user: IUser = {
@@ -66,12 +65,12 @@ authRouter.post('/register', async (req, res, next) => {
     role: 'user'
   };
 
-  const [newLogin, newUser] = await Promise.all([createUser(user),createLogin(login)]);
+  const [newLogin, newUser] = await Promise.all([createUser(user), createLogin(login)]);
   console.log('newUser:', newUser);
   console.log('newLogin:', newLogin);
   if (newLogin && newUser) {
     res.status(201).json({
-      msg: 'User Registered Successfully',
+      msg: 'User Registered Successfully'
     });
   } else {
     res.status(500).json({ msg: 'User not registered' });

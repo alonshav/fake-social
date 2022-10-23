@@ -6,6 +6,7 @@ import * as morgan from 'morgan';
 
 import { initializePassport } from './passport-config';
 import flash = require('express-flash');
+import isAuthenticated from './app/middleware/isAuthenticated';
 
 import postsRouter from './app/routes/posts.router';
 import authRouter from './app/routes/auth.router';
@@ -28,7 +29,6 @@ app.use(cors({
   credentials: true
 }));
 
-
 initializePassport(passport);
 
 //Session
@@ -40,7 +40,7 @@ app.use(session({
   cookie: {
     sameSite: false,
     secure: process.env.NODE_ENV === 'production',
-    maxAge: 60000,
+    maxAge: 600000,
     httpOnly: true
   }
 }));
@@ -51,7 +51,7 @@ app.use(passport.initialize());
 
 
 //Routes
-app.use('/api/posts', postsRouter);
+app.use('/api/posts' , isAuthenticated ,postsRouter); // add isAuthenticated Middleware
 app.use('/api/auth', authRouter);
 
 

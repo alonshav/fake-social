@@ -49,7 +49,7 @@ function Login() {
         }, { withCredentials: true });
       if (res.status === 200) {
         setLoadingState(LoadingStatus.succeeded);
-        const user:IUser = res.data;
+        const { user } = res.data;
         dispatch(loadUser(user));
         localStorage.setItem('currentUser', JSON.stringify(user))
         navigate(from, { replace: true });

@@ -9,12 +9,12 @@ export function initializePassport(passport) {
 
   const authenticateUser = async (username, password, done) => {
     const userLogin = USER_LOGINS.find(login => login.nickName === username);
+    const user = USERS.find(user => userLogin.RelatedUserId === user.id);
 
-    if (userLogin) {
-      const isPasswordValid = await bcrypt.compare(password, userLogin.passwordHash)
-      const user = USERS.find(user => userLogin.RelatedUserId === user.id);
+    if (userLogin && user) {
+      const isPasswordValid = await bcrypt.compare(password, userLogin.passwordHash);
       try {
-        if (user && isPasswordValid) {
+        if (isPasswordValid) {
           return done(null, user);
         } else {
           return done(null, false, { message: 'Bad Credentials' });
