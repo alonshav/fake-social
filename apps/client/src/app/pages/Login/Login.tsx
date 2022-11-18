@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { IUser, LoadingStatus } from '@types';
+import { LoadingStatus } from '@types';
 import { StyledLoginStyled } from '../../styles/StyledLogin.styled';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { LoginButton } from '../../styles/Buttons/LoginButton';
@@ -24,8 +24,6 @@ function Login() {
 
   const {isAuthenticated} = useAuth();
   const dispatch = useAppDispatch();
-
-
 
   useEffect(() => {
     if (isAuthenticated) {

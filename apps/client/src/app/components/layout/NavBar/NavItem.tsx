@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { NavButton } from './NavButton';
-import { StyledNavLink } from '../../styles/NavLink.styled';
-import { INavItem } from '../../hooks/constants/useNavbarMenu';
-import DropdownMenu from '../../components/common/DropdownMenu/DropdownMenu';
+import { StyledNavLink } from '../../../styles/NavLink.styled';
+import { INavItem } from '../../../hooks/constants/useNavbarMenu';
+import DropdownMenu from '../../common/DropdownMenu/DropdownMenu';
 
 interface NavItemProps {
   navItem: INavItem;

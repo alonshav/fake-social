@@ -4,11 +4,11 @@ import Login from './pages/Login/Login';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import SinglePostPage from './pages/SinglePostPage/SinglePostPage';
 import Register from './pages/Register/Register';
-import Layout from './layout/Layout/Layout';
+import Layout from './components/layout/Layout/Layout';
 import RequireAuth from './components/common/RequireAuth';
 import useAuth from './hooks/useAuth';
-import NavBar from './layout/NavBar/NavBar';
-import Footer from './layout/Footer/Footer';
+import NavBar from './components/layout/NavBar/NavBar';
+import Footer from './components/layout/Footer/Footer';
 import { useAppDispatch } from './hooks/store/useAppDispatch';
 import { IUser } from '@types';
 import { loadUser } from './features/User/userSlice';
@@ -38,7 +38,7 @@ export const App = () => {
 
             {/* protected routes*/}
             <Route element={<RequireAuth />}>
-              <Route path='/' element={<Home />} />
+              <Route index element={<Home />} />
               <Route path='/home' element={<Home />} />
               <Route path='/posts'>
                 <Route path=':postId' element={<SinglePostPage />} />

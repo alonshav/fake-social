@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import SideBar from '../layout/SideBar/SideBar';
+import SideBar from '../components/layout/SideBar/SideBar';
 
 export const LeftSideBarStyled = styled(SideBar)`
 `

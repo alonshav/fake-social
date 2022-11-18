@@ -1,7 +1,7 @@
 import React from 'react';
-import { StyledNavLinks } from '../../styles/NavButtons.styled';
+import { StyledNavLinks } from '../../../styles/NavButtons.styled';
 import NavItem from './NavItem';
-import { useNavbarMenu } from '../../hooks/constants/useNavbarMenu';
+import { useNavbarMenu } from '../../../hooks/constants/useNavbarMenu';
 
 function NavLinks() {
 
