@@ -1,6 +1,6 @@
 import React from 'react';
 import { parseISO, formatDistanceToNow } from 'date-fns';
-import { StyledPostTimestamp } from '../../../../styles/StyledPostTimeStamp';
+import { StyledPostTimeStampStyled } from '../../../../styles/StyledPostTimeStamp.styled';
 
 interface PostTimestampProps {
   timestamp: string;
@@ -15,10 +15,10 @@ export const PostTimestamp = ({ timestamp }: PostTimestampProps) => {
   }
 
   return (
-    <StyledPostTimestamp className='post-timestamp'>
+    <StyledPostTimeStampStyled className='post-timestamp'>
       <span title={timestamp} className='timestamp'>
         <i>{timeAgo}</i>
       </span>
-    </StyledPostTimestamp>
+    </StyledPostTimeStampStyled>
   );
 };

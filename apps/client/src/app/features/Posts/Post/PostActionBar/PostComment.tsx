@@ -1,7 +1,7 @@
 import React from 'react';
 import { PostActionBarButton } from './PostActionBarButton';
 import { IPost } from '@types';
-import { useAppDispatch } from '../../../../hooks/store/useAppDispatch';
+import { useAppDispatch } from '../../../../shared/hooks/store/useAppDispatch';
 
 interface PostLikeButtonProps{
   post:IPost

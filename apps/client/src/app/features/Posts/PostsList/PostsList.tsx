@@ -1,12 +1,11 @@
 import React, { useEffect } from 'react';
 import Post from '../Post/Post';
 import { StyledPostsList } from '../../../styles/Posts.styled';
-import { useAppSelector } from '../../../hooks/store/useAppSelector';
+import { useAppSelector } from '../../../shared/hooks/store/useAppSelector';
 import { fetchPosts, selectAllPosts } from '../postsSlice';
 import { useNavigate } from 'react-router-dom';
-import { useAppDispatch } from '../../../hooks/store/useAppDispatch';
+import { useAppDispatch } from '../../../shared/hooks/store/useAppDispatch';
 import { LoadingStatus } from '@types';
-import { parseForESLint } from '@typescript-eslint/parser';
 
 
 function PostsList() {
@@ -31,20 +30,22 @@ function PostsList() {
 
   const renderList = () => {
     if (postStatus === LoadingStatus.succeeded) {
-      return (<StyledPostsList className='posts-list'>
-        {orderedPosts.map((post) =>
-          <li key={post.id}>
-            <Post
-              post={post}
-              onPostClick={handlePostClick} />
-          </li>)}
-      </StyledPostsList>);
+      return (
+        <StyledPostsList className='posts-list'>
+          {orderedPosts.map((post) =>
+            <li key={post.id}>
+              <Post
+                post={post}
+                onPostClick={handlePostClick} />
+            </li>)}
+        </StyledPostsList>
+      );
     }
     if (postStatus === LoadingStatus.failed) {
       return <p>{error}</p>;
     }
     if (postStatus === LoadingStatus.loading) {
-      return <h1>loading...</h1>
+      return <h1>loading...</h1>;
     }
     return null;
   };

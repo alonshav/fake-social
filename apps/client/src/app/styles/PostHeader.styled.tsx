@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import { CardHeader } from './CardHeader';
+import { CardHeaderStyled } from './CardHeader.styled';
 
-export const PostHeader = styled(CardHeader)`
+export const PostHeader = styled(CardHeaderStyled)`
   .followButton {
     &:hover {
       color: ${({ theme }) => theme.color['link-highlight']};

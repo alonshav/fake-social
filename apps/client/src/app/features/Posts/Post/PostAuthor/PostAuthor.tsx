@@ -1,6 +1,6 @@
 import React from 'react';
-import ProfilePicture from '../../../../components/common/ProfilePicture/ProfilePicture';
-import AuthorDetails from '../../../../components/common/AuthorDetails/AuthorDetails';
+import ProfilePicture from '../../../../shared/components/ProfilePicture/ProfilePicture';
+import AuthorDetails from '../../../../shared/components/AuthorDetails/AuthorDetails';
 import { IPost } from '@types';
 import { StyledPostAuthor } from '../../../../styles/PostAuthor.styled';
 

@@ -47,7 +47,7 @@ export const selectAllPosts = ({ posts }: RootState) => posts.list;
 export const selectPostById = ({ posts }: RootState, postId?: PostId) =>
   posts.list.find(post => post.id === postId);
 
-export const selectIsUserReacted = ({ posts }: RootState, id: PostId): boolean => {
+export const selectHasUserReacted = ({ posts }: RootState, id: PostId): boolean => {
   const post = posts.list.find(post => post.id === id);
   return post ? post.isUserReacted : false;
 };

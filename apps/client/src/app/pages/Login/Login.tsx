@@ -2,11 +2,11 @@ import React, { useEffect, useRef, useState } from 'react';
 import { LoadingStatus } from '@types';
 import { StyledLoginStyled } from '../../styles/StyledLogin.styled';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { LoginButton } from '../../styles/Buttons/LoginButton';
+import { StyledLoginButton } from '../../styles/Buttons/StyledLoginButton.styled';
 import axios from 'axios';
-import { useAppDispatch } from '../../hooks/store/useAppDispatch';
+import { useAppDispatch } from '../../shared/hooks/store/useAppDispatch';
 import { loadUser } from '../../features/User/userSlice';
-import useAuth from '../../hooks/useAuth';
+import useAuth from '../../shared/hooks/useAuth';
 
 function Login() {
   const userRef = useRef<HTMLInputElement>(null);
@@ -86,7 +86,7 @@ function Login() {
             value={password}
             required
           />
-          <LoginButton type='submit' className='sign-in'><h3>Sign In</h3></LoginButton>
+          <StyledLoginButton type='submit' className='sign-in'><h3>Sign In</h3></StyledLoginButton>
         </form>
         <p className='new-account'>
           New to Fake Social?
