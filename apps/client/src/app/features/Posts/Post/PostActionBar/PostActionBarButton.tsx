@@ -13,7 +13,6 @@ export const PostActionBarButton = ({ title, iconType, onActionClick, isActionCl
     onActionClick();
   };
 
-  console.log('isActionClicked:', isActionClicked);
   return (
     <StyledPostActionBarButton className='post-action-bar-button' onClick={handleClick} isClicked={isActionClicked}>
       <span className='material-symbols-outlined icon'>{iconType}</span>

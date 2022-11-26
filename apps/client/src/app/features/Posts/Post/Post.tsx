@@ -8,7 +8,7 @@ import { StyledPost } from '../../../styles/Post.styled';
 import { StyledButton } from '../../../styles/Button.styled';
 import { PostTimestamp } from './PostTimeAgo/PostTimestamp';
 import PostAuthor from './PostAuthor/PostAuthor';
-import PostReactionBar from './PostReactionBar/PostReactionBar';
+import PostReactionsStatus from './PostReactionBar/PostReactionStatus';
 
 interface PostProps {
   post: IPost;
@@ -26,6 +26,7 @@ function Post({ post, onPostClick, className }: PostProps) {
 
   return (
     <StyledPost className={className && className}>
+
       <PostHeader>
         <div className='post-details'>
           <PostAuthor post={post} />
@@ -33,15 +34,18 @@ function Post({ post, onPostClick, className }: PostProps) {
         </div>
         <StyledButton className='followButton'>+Follow</StyledButton>
       </PostHeader>
+
       <PostContent onClick={handlePostClick}>
         {post.title && <h4 className='post-title'>{post.title}</h4>}
         <p className='text-container'>{post.text}</p>
         <div className='image-container'>{post.image && <img src={post.image} />}</div>
       </PostContent>
+
       <PostFooter>
-        <PostReactionBar post={post} />
+        <PostReactionsStatus post={post} />
         <PostActionBar post={post} />
       </PostFooter>
+
     </StyledPost>
   );
 }

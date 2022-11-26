@@ -1,29 +1,56 @@
+import React, { useEffect } from 'react';
 import Home from './pages/Home/Home';
-import { ThemeProvider } from 'styled-components';
-import GlobalStyles from './styles/global/GlobalStyles';
-import { lightMode } from './styles/global/GlobalThemes';
 import Login from './pages/Login/Login';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import NavBar from './components/layout/NavBar/NavBar';
-import React from 'react';
-import SinglePostPage from './pages/SinglePostPage/SinglePostPage';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import SinglePost from './pages/SinglePost/SinglePost';
+import Register from './pages/Register/Register';
+import Layout from './shared/components/layout/Layout/Layout';
+import RequireAuth from './shared/components/RequireAuth';
+import useAuth from './shared/hooks/useAuth';
+import NavBar from './shared/components/layout/NavBar/NavBar';
+import Footer from './shared/components/layout/Footer/Footer';
+import { useAppDispatch } from './shared/hooks/store/useAppDispatch';
+import { IUser } from '@types';
+import { loadUser } from './features/User/userSlice';
 
 export const App = () => {
+
+  useEffect(() => {
+    const loggedInUser = localStorage.getItem("currentUser");
+    if (loggedInUser) {
+      const foundUser:IUser = JSON.parse(loggedInUser);
+      dispatch(loadUser(foundUser));
+    }
+  }, []);
+
+  const dispatch = useAppDispatch();
+  const { isAuthenticated } = useAuth();
+
   return (
-    <ThemeProvider theme={lightMode}>
-      <GlobalStyles/>
-        <Router>
-          <NavBar isLoggedIn={true} />
-          <Routes>
-            <Route path='/' element={<Navigate to='/home' />} />
-            <Route path='/home' element={<Home />} />
+      <BrowserRouter>
+        {isAuthenticated && <NavBar/>}
+        <Routes>
+          <Route path='/' element={<Layout />}>
+
+            {/* public routes*/}
             <Route path='/login' element={<Login />} />
-            <Route path='/posts'>
-              <Route path=':postId' element={<SinglePostPage/>}/>
+            <Route path='/register' element={<Register />} />
+
+            {/* protected routes*/}
+            <Route element={<RequireAuth />}>
+              <Route index element={<Home />} />
+              <Route path='/home' element={<Home />} />
+              <Route path='/posts'>
+                <Route path=':postId' element={<SinglePost />} />
+              </Route>
             </Route>
-          </Routes>
-        </Router>
-    </ThemeProvider>
+
+            {/* catch rest*/}
+
+          </Route>
+        </Routes>
+        {isAuthenticated && <Footer/>}
+      </BrowserRouter>
   );
 };
 

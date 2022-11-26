@@ -1,6 +1,6 @@
 import React from 'react';
-import ProfilePicture from '../../../../components/common/ProfilePicture/ProfilePicture';
-import AuthorDetails from '../../../../components/common/AuthorDetails/AuthorDetails';
+import ProfilePicture from '../../../../shared/components/ProfilePicture/ProfilePicture';
+import AuthorDetails from '../../../../shared/components/AuthorDetails/AuthorDetails';
 import { IPost } from '@types';
 import { StyledPostAuthor } from '../../../../styles/PostAuthor.styled';
 
@@ -11,8 +11,8 @@ interface PostAuthor{
 function PostAuthor({post}:PostAuthor) {
   return (
     <StyledPostAuthor>
-      <ProfilePicture userPicture={post.author.profile_picture} userNickname={post.author.nick_name} />
-      <AuthorDetails userName={post.author.full_name} userNickName={post.author.nick_name} />
+      <ProfilePicture userPicture={post.author.profilePicture} userNickname={post.author.nickName} />
+      <AuthorDetails userName={post.author.firstName} userNickName={post.author.nickName} />
     </StyledPostAuthor>
   );
 }

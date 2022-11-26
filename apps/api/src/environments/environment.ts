@@ -1,3 +1,4 @@
 export const environment = {
-  production: false,
+  sessionSecret: 'D53gxl41G',
+  production: false
 };

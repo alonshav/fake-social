@@ -1,3 +1,5 @@
-import * as dotenv from 'dotenv'
-dotenv.config()
-const env = process.env
+import * as dotenv from 'dotenv';
+
+if (process.env.NODE_ENV !== 'production'){
+  dotenv.config();
+}
