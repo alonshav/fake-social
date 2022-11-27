@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { LoadingStatus } from '@types';
-import { StyledLoginStyled } from '../../styles/StyledLogin.styled';
+import { StyledLoginStyled } from '../../styles/Login.styled';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { StyledLoginButton } from '../../styles/Buttons/StyledLoginButton.styled';
 import axios from 'axios';

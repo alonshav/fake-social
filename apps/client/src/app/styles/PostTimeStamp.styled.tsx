@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyledPostTimeStampStyled = styled.div`
+export const StyledPostTimeStamp = styled.div`
   .timestamp{
     position: absolute;
     font-weight: 300;

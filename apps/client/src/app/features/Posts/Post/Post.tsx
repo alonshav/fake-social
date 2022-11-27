@@ -3,7 +3,7 @@ import { IPost } from '@types';
 import { PostHeader } from '../../../styles/PostHeader.styled';
 import PostActionBar from './PostActionBar/PostActionBar';
 import { PostContent } from '../../../styles/PostContent.styled';
-import { PostFooter } from '../../../styles/PostFooter';
+import { PostFooter } from '../../../styles/PostFooter.styled';
 import { StyledPost } from '../../../styles/Post.styled';
 import { StyledButton } from '../../../styles/Button.styled';
 import { PostTimestamp } from './PostTimeAgo/PostTimestamp';

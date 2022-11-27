@@ -1,5 +1,5 @@
 import styled from 'styled-components';
 
-export const StyledFooterStyled = styled.footer`
+export const FooterStyled = styled.footer`
   padding: 2rem;
 `

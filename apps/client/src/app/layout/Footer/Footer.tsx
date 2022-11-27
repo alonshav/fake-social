@@ -1,15 +1,15 @@
 import React from 'react';
 import './Footer.css';
-import { StyledFooterStyled } from '../../../../styles/StyledFooter.styled';
+import { FooterStyled } from '../../styles/Footer.styled';
 
 const Footer = () => {
   return (
-    <StyledFooterStyled>
+    <FooterStyled>
       <h3>Fake Social <span>&copy;</span> 2022</h3>
       <p>About</p>
       <p>Contact Me</p>
       <p>Alon Levy Shavit</p>
-    </StyledFooterStyled>
+    </FooterStyled>
   );
 };
 

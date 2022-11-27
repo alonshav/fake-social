@@ -1,7 +1,7 @@
 import React from 'react';
-import Icon from '../../Icon/Icon';
-import { StyledNavButton } from '../../../../styles/Buttons/StyledNavButton.styled';
-import { INavItem } from '../../../hooks/constants/useNavbarMenu';
+import Icon from '../../shared/components/Icon/Icon';
+import { StyledNavButton } from '../../styles/Buttons/StyledNavButton.styled';
+import { INavItem } from '../../shared/hooks/constants/useNavbarMenu';
 
 interface Props {
   item: INavItem;

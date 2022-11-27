@@ -1,10 +1,10 @@
-import NavBar from '../../shared/components/layout/NavBar/NavBar';
-import Feed from '../../shared/components/layout/Feed/Feed';
-import Footer from '../../shared/components/layout/Footer/Footer';
+import NavBar from '../../layout/NavBar/NavBar';
+import Feed from '../../layout/Feed/Feed';
+import Footer from '../../layout/Footer/Footer';
 import { HomeGridContainer } from '../../styles/HomeGridContainer.styled';
 import React from 'react';
-import LeftSideBar from '../../shared/components/layout/SideBar/LeftSideBar';
-import RightSideBar from '../../shared/components/layout/SideBar/RightSideBar';
+import LeftSideBar from '../../layout/SideBar/LeftSideBar';
+import RightSideBar from '../../layout/SideBar/RightSideBar';
 
 const Home = () => {
   return (

@@ -1,5 +1,5 @@
 import React from 'react';
-import { SideBarStyled } from '../../../../styles/SideBar.styled';
+import { SideBarStyled } from '../../styles/SideBar.styled';
 
 interface Props {
   children:React.ReactNode

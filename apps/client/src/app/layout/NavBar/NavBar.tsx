@@ -1,6 +1,6 @@
-import { StyledNavBar } from '../../../../styles/NavBar.styled';
+import { StyledNavBar } from '../../styles/NavBar.styled';
 import NavLinks from './NavLinks';
-import SearchBar from '../../SearchBar/SearchBar';
+import SearchBar from '../../shared/components/SearchBar/SearchBar';
 
 
 const NavBar = () => {

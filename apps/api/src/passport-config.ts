@@ -1,8 +1,8 @@
 import * as LocalStrategy from 'passport-local';
 import * as bcrypt from 'bcrypt';
 
-import { USER_LOGINS } from './mocks/USER_LOGINS';
-import { USERS } from './mocks/USERS';
+import { USER_LOGINS } from './app/mocks/USER_LOGINS';
+import { USERS } from './app/mocks/USERS';
 import { IUserLogin } from '@types';
 
 export function initializePassport(passport) {

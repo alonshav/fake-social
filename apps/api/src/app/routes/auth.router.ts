@@ -4,8 +4,8 @@ import * as bcrypt from 'bcrypt';
 import { v4 as uuid } from 'uuid';
 
 import { IUserLogin, IUser } from '@types';
-import { createLogin, createUser } from '../../mocks/USER_LOGINS';
-import { USERS } from '../../mocks/USERS';
+import { createLogin, createUser } from '../mocks/USER_LOGINS';
+import { USERS } from '../mocks/USERS';
 
 const authRouter = express.Router();
 

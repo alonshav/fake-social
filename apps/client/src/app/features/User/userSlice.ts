@@ -1,6 +1,6 @@
 import { IUser } from '@types';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { RootState } from '../../store/store';
+import { RootState } from '../../rootStore';
 
 export interface UserState {
   current: IUser | null;

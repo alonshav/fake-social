@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { RootState } from '../../store/store';
+import { RootState } from '../../rootStore';
 import { addPostReducer, toggleReactionReducer } from './postsReducers';
 import { LoadingStatus, PostId, PostsState } from '@types';
 import axios from 'axios';

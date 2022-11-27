@@ -1,5 +1,5 @@
 import * as express from 'express';
-import { POSTS } from '../../mocks/POSTS';
+import { POSTS } from '../mocks/POSTS';
 
 const postsRouter = express.Router();
 

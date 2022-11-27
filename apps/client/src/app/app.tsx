@@ -4,31 +4,39 @@ import Login from './pages/Login/Login';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import SinglePost from './pages/SinglePost/SinglePost';
 import Register from './pages/Register/Register';
-import Layout from './shared/components/layout/Layout/Layout';
+import Layout from './layout/Layout/Layout';
 import RequireAuth from './shared/components/RequireAuth';
 import useAuth from './shared/hooks/useAuth';
-import NavBar from './shared/components/layout/NavBar/NavBar';
-import Footer from './shared/components/layout/Footer/Footer';
+import NavBar from './layout/NavBar/NavBar';
+import Footer from './layout/Footer/Footer';
 import { useAppDispatch } from './shared/hooks/store/useAppDispatch';
 import { IUser } from '@types';
 import { loadUser } from './features/User/userSlice';
+import GlobalStyles from './styles/global/GlobalStyles.styled';
+import { ThemeProvider } from 'styled-components';
+import { useAppSelector } from './shared/hooks/store/useAppSelector';
+import { selectCurrentTheme } from './layout/layoutSlice';
 
 export const App = () => {
 
   useEffect(() => {
-    const loggedInUser = localStorage.getItem("currentUser");
+    const loggedInUser = localStorage.getItem('currentUser');
     if (loggedInUser) {
-      const foundUser:IUser = JSON.parse(loggedInUser);
+      const foundUser: IUser = JSON.parse(loggedInUser);
       dispatch(loadUser(foundUser));
     }
   }, []);
 
   const dispatch = useAppDispatch();
+  const theme = useAppSelector(selectCurrentTheme);
   const { isAuthenticated } = useAuth();
 
+
   return (
+    <ThemeProvider theme={theme}>
+      <GlobalStyles />
       <BrowserRouter>
-        {isAuthenticated && <NavBar/>}
+        {isAuthenticated && <NavBar />}
         <Routes>
           <Route path='/' element={<Layout />}>
 
@@ -49,8 +57,9 @@ export const App = () => {
 
           </Route>
         </Routes>
-        {isAuthenticated && <Footer/>}
+        {isAuthenticated && <Footer />}
       </BrowserRouter>
+    </ThemeProvider>
   );
 };
 
