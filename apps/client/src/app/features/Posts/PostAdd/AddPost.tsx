@@ -1,10 +1,10 @@
 import React from 'react';
 import { StyledAddPostCard } from '../../../styles/AddPostsForm.Styled';
-import { useAppDispatch } from '../../../shared/hooks/store/useAppDispatch';
+import { useAppDispatch } from '../../../store/useAppDispatch';
 import { addPost } from '../postsSlice';
 import ProfilePicture from '../../../shared/components/ProfilePicture/ProfilePicture';
-import { StyledPublishAPostButton } from '../../../styles/PublishAPostButton.styled';
-import { useAppSelector } from '../../../shared/hooks/store/useAppSelector';
+import { StyledPublishPostButton } from '../../../styles/PublishAPostButton.styled';
+import { useAppSelector } from '../../../store/useAppSelector';
 import { selectCurrentUser } from '../../User/userSlice';
 
 
@@ -38,7 +38,7 @@ export const AddPost = () => {
   return (
     <StyledAddPostCard>
       <ProfilePicture userPicture={'https://www.w3schools.com/w3css/img_lights.jpg'} userNickname={'Beitz'} />
-      <StyledPublishAPostButton type='button' onClick={handlePublish}>Start a new post</StyledPublishAPostButton>
+      <StyledPublishPostButton type='button' onClick={handlePublish}>Start a new post</StyledPublishPostButton>
     </StyledAddPostCard>
   )
     ;

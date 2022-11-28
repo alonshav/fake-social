@@ -5,17 +5,18 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import SinglePost from './pages/SinglePost/SinglePost';
 import Register from './pages/Register/Register';
 import Layout from './layout/Layout/Layout';
-import RequireAuth from './shared/components/RequireAuth';
-import useAuth from './shared/hooks/useAuth';
+import RequireAuth from './shared/services/Auth/RequireAuth';
+import useAuth from './shared/services/Auth/useAuth';
 import NavBar from './layout/NavBar/NavBar';
 import Footer from './layout/Footer/Footer';
-import { useAppDispatch } from './shared/hooks/store/useAppDispatch';
+import { useAppDispatch } from './store/useAppDispatch';
 import { IUser } from '@types';
 import { loadUser } from './features/User/userSlice';
 import GlobalStyles from './styles/global/GlobalStyles.styled';
 import { ThemeProvider } from 'styled-components';
-import { useAppSelector } from './shared/hooks/store/useAppSelector';
+import { useAppSelector } from './store/useAppSelector';
 import { selectCurrentTheme } from './layout/layoutSlice';
+import UserProfile from './pages/UserProfile/UserProfile';
 
 export const App = () => {
 
@@ -50,6 +51,9 @@ export const App = () => {
               <Route path='/home' element={<Home />} />
               <Route path='/posts'>
                 <Route path=':postId' element={<SinglePost />} />
+              </Route>
+              <Route path='/users'>
+                <Route path=':userId' element={<UserProfile />} />
               </Route>
             </Route>
 

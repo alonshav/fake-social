@@ -2,7 +2,7 @@ import React from 'react';
 import DropdownItem from './DropdownItem';
 import Icon from '../Icon/Icon';
 import { StyledDropdownMenu } from '../../../styles/DropdownMenu.styled';
-import { useAppDispatch } from '../../hooks/store/useAppDispatch';
+import { useAppDispatch } from '../../../store/useAppDispatch';
 import { clearUser } from '../../../features/User/userSlice';
 import axios from 'axios';
 

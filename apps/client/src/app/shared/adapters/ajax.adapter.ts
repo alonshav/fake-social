@@ -1,4 +1,4 @@
-import axios, {Method} from "axios";
+import axios, { Method } from 'axios';
 import { IAjaxResponse, IRequestParams } from '@types';
 
 export class AjaxAdapter {
@@ -7,15 +7,15 @@ export class AjaxAdapter {
                      queryParams,
                      method,
                      body,
-                     headers,
+                     headers
                    }: IRequestParams): Promise<IAjaxResponse<T | null>> {
-    method = method.toLowerCase() as Method
-    let response
+    method = method.toLowerCase() as Method;
+    let response;
     try {
-      response = (await axios({method, url, data: body, headers})).data
-      return {response: response, error: null}
+      response = (await axios({ method, url, data: body, headers })).data;
+      return { response: response, error: null };
     } catch (error) {
-      return {response: null, error}
+      return { response: null, error };
     }
   }
 
@@ -25,13 +25,13 @@ export class AjaxAdapter {
                                   method,
                                   body,
                                   getToken,
-                                  headers,
+                                  headers
                                 }: IRequestParams & { getToken: any }): Promise<IAjaxResponse<T | null>> {
-    let token: string
+    let token: string;
     try {
-      token = await getToken()
+      token = await getToken();
     } catch (error) {
-      return {response: null, error}
+      return { response: null, error };
     }
 
     return this.request({
@@ -40,8 +40,8 @@ export class AjaxAdapter {
       body,
       headers: {
         ...headers,
-        Authorization: `Bearer ${token}`,
-      },
-    })
+        Authorization: `Bearer ${token}`
+      }
+    });
   }
 }

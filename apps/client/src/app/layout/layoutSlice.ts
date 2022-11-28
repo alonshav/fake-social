@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { RootState } from '../rootStore';
+import { RootState } from '../store/rootStore';
 import { globalThemes, ITheme } from '../styles/global/GlobalThemes.styled';
 
 

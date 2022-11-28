@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyledProfilePicture = styled.a`
+export const StyledProfilePicture = styled.div`
   height: 55px;
   width: 55px;
   border-radius: 50%;

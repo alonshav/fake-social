@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 import Post from '../Post/Post';
 import { StyledPostsList } from '../../../styles/Posts.styled';
-import { useAppSelector } from '../../../shared/hooks/store/useAppSelector';
+import { useAppSelector } from '../../../store/useAppSelector';
 import { fetchPosts, selectAllPosts } from '../postsSlice';
 import { useNavigate } from 'react-router-dom';
-import { useAppDispatch } from '../../../shared/hooks/store/useAppDispatch';
+import { useAppDispatch } from '../../../store/useAppDispatch';
 import { LoadingStatus } from '@types';
 
 

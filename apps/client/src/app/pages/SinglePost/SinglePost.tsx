@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import { useAppSelector } from '../../shared/hooks/store/useAppSelector';
+import { useAppSelector } from '../../store/useAppSelector';
 import Post from '../../features/Posts/Post/Post';
 import { SinglePostStyled } from '../../styles/SinglePost.styled';
 import { selectPostById } from '../../features/Posts/postsSlice';

@@ -10,7 +10,7 @@ interface UserDetailsProps {
 function AuthorDetails({ userNickName, userName }: UserDetailsProps) {
   return (
     <StyledAuthorDetails>
-      <Link to={`users/${userNickName}`}><h4 className='user-name'>{userNickName}</h4></Link>
+      <Link to={`/${userNickName}`}><h4 className='user-name'>{userNickName}</h4></Link>
       <h5 className='user-moto'>{userName}</h5>
     </StyledAuthorDetails>
   );

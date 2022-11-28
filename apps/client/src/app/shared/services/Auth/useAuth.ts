@@ -1,5 +1,5 @@
-import { useAppSelector } from './store/useAppSelector';
-import { selectCurrentUser } from '../../features/User/userSlice';
+import { useAppSelector } from '../../../store/useAppSelector';
+import { selectCurrentUser } from '../../../features/User/userSlice';
 
 function useAuth() {
 

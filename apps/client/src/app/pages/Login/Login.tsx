@@ -4,9 +4,9 @@ import { StyledLoginStyled } from '../../styles/Login.styled';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { StyledLoginButton } from '../../styles/Buttons/StyledLoginButton.styled';
 import axios from 'axios';
-import { useAppDispatch } from '../../shared/hooks/store/useAppDispatch';
+import { useAppDispatch } from '../../store/useAppDispatch';
 import { loadUser } from '../../features/User/userSlice';
-import useAuth from '../../shared/hooks/useAuth';
+import useAuth from '../../shared/services/Auth/useAuth';
 
 function Login() {
   const userRef = useRef<HTMLInputElement>(null);

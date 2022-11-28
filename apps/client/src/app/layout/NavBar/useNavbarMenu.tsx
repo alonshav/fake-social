@@ -1,4 +1,4 @@
-import DropdownMenu from '../../components/DropdownMenu/DropdownMenu';
+import DropdownMenu from '../../shared/components/DropdownMenu/DropdownMenu';
 
 export interface INavItem {
   title: string,

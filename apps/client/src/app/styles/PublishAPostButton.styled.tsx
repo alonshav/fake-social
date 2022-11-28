@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { StyledRoundCornerButton } from './Buttons/StyledRoundCornerButton';
 
-export const StyledPublishAPostButton = styled(StyledRoundCornerButton)`
+export const StyledPublishPostButton = styled(StyledRoundCornerButton)`
   color: #676767;
   border: 1px solid ${({ theme }) => theme.color.secondary};
   background-color: transparent;
