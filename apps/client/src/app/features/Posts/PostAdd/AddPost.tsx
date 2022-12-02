@@ -1,17 +1,17 @@
 import React from 'react';
 import { StyledAddPostCard } from '../../../styles/AddPostsForm.Styled';
 import { useAppDispatch } from '../../../store/useAppDispatch';
-import { addPost } from '../postsSlice';
+import { addPost } from '../../../store/posts.slice';
 import ProfilePicture from '../../../shared/components/ProfilePicture/ProfilePicture';
 import { StyledPublishPostButton } from '../../../styles/PublishAPostButton.styled';
 import { useAppSelector } from '../../../store/useAppSelector';
-import { selectCurrentUser } from '../../User/userSlice';
+import { selectAuthenticatedUser } from '../../../store/auth.slice';
 
 
 export const AddPost = () => {
 
   const dispatch = useAppDispatch();
-  const currentUser = useAppSelector(selectCurrentUser);
+  const currentUser = useAppSelector(selectAuthenticatedUser);
 
   // const [title, setTitle] = useState('');
   // const [text, setText] = useState('');

@@ -1,12 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { LoadingStatus } from '@types';
 import { StyledLoginStyled } from '../../styles/Login.styled';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { StyledLoginButton } from '../../styles/Buttons/StyledLoginButton.styled';
-import axios from 'axios';
 import { useAppDispatch } from '../../store/useAppDispatch';
-import { loadUser } from '../../features/User/userSlice';
-import useAuth from '../../shared/services/Auth/useAuth';
+import { login, selectIsAuthenticated, selectLoginStatus } from '../../store/auth.slice';
+import { useAppSelector } from '../../store/useAppSelector';
 
 function Login() {
   const userRef = useRef<HTMLInputElement>(null);
@@ -15,15 +13,15 @@ function Login() {
   const [nickName, setNickName] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
-  const [loadingState, setLoadingState] = useState(LoadingStatus.idle);
 
 
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || '/';
 
-  const {isAuthenticated} = useAuth();
   const dispatch = useAppDispatch();
+  const loadingStatus = useAppSelector(selectLoginStatus);
+  const isAuthenticated = useAppSelector(selectIsAuthenticated);
 
   useEffect(() => {
     if (isAuthenticated) {
@@ -38,24 +36,7 @@ function Login() {
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setLoadingState(LoadingStatus.loading);
-    try {
-      const res = await axios.post('http://localhost:3333/api/auth/login',
-        {
-          username: nickName,
-          password
-        }, { withCredentials: true });
-      if (res.status === 200) {
-        setLoadingState(LoadingStatus.succeeded);
-        const { user } = res.data;
-        dispatch(loadUser(user));
-        localStorage.setItem('currentUser', JSON.stringify(user))
-        navigate(from, { replace: true });
-      }
-    } catch (e) {
-      setErrorMessage(`${e}`);
-      navigate('/login');
-    }
+    dispatch(login({ nickName, password }));
   };
 
   return (

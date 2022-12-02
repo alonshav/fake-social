@@ -36,8 +36,8 @@ export type FetchAction =
   | { type: 'REJECT'; error: string };
 
 export enum LoadingStatus {
-  loading = 'LOADING',
-  succeeded = 'SUCCEEDED',
+  pending = 'PENDING',
+  success = 'SUCCEEDED',
   failed = 'FAILED',
   idle = 'IDLE'
 }
@@ -87,10 +87,10 @@ export interface IUser {
   nickName: string;
   firstName: string;
   lastName: string;
-  email:string;
+  email: string;
   profilePicture?: string;
   createdAt: string;
-  role: UserRole
+  role: UserRole;
 }
 
 export type LoginId = string;
@@ -115,5 +115,10 @@ interface PostComment {
   image?: string;
 }
 
-
+export interface AuthState {
+  user: IUser | null;
+  loadingStatus: LoadingStatus;
+  isAuthenticated: boolean;
+  error: string | null;
+}
 

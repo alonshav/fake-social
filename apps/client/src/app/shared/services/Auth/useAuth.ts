@@ -1,12 +1,12 @@
 import { useAppSelector } from '../../../store/useAppSelector';
-import { selectCurrentUser } from '../../../features/User/userSlice';
+import { selectIsAuthenticated } from '../../../store/auth.slice';
 
 function useAuth() {
 
-  const authenticatedUser = useAppSelector(selectCurrentUser)
+  const isAuthenticated = useAppSelector(selectIsAuthenticated)
 
   return {
-    isAuthenticated : (!!authenticatedUser)
+    isAuthenticated
   };
 }
 

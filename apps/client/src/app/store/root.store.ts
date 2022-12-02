@@ -1,13 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit';
-import postsReducer from '../features/Posts/postsSlice';
-import userReducer from '../features/User/userSlice';
-import layoutSlice from '../layout/layoutSlice';
+import postsReducer from './posts.slice';
+import layoutSlice from './layout.slice';
+import authSlice from './auth.slice';
 
 export const rootStore = configureStore({
   reducer: {
     posts: postsReducer,
-    user: userReducer,
-    layout: layoutSlice
+    layout: layoutSlice,
+    auth: authSlice
     // comments: commentsReducer,
   }
 });

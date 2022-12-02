@@ -11,22 +11,18 @@ import NavBar from './layout/NavBar/NavBar';
 import Footer from './layout/Footer/Footer';
 import { useAppDispatch } from './store/useAppDispatch';
 import { IUser } from '@types';
-import { loadUser } from './features/User/userSlice';
 import GlobalStyles from './styles/global/GlobalStyles.styled';
 import { ThemeProvider } from 'styled-components';
 import { useAppSelector } from './store/useAppSelector';
-import { selectCurrentTheme } from './layout/layoutSlice';
+import { selectCurrentTheme } from './store/layout.slice';
 import UserProfile from './pages/UserProfile/UserProfile';
+import { loadUser } from './store/auth.slice';
 
 export const App = () => {
 
   useEffect(() => {
-    const loggedInUser = localStorage.getItem('currentUser');
-    if (loggedInUser) {
-      const foundUser: IUser = JSON.parse(loggedInUser);
-      dispatch(loadUser(foundUser));
-    }
-  }, []);
+    dispatch(loadUser());
+  });
 
   const dispatch = useAppDispatch();
   const theme = useAppSelector(selectCurrentTheme);

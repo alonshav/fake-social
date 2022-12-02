@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { RootState } from '../../store/rootStore';
-import { addPostReducer, toggleReactionReducer } from './postsReducers';
+import { RootState } from './root.store';
+import { addPostReducer, toggleReactionReducer } from '../features/Posts/postsReducers';
 import { LoadingStatus, PostId, PostsState } from '@types';
 import axios from 'axios';
 
@@ -24,10 +24,10 @@ const postsSlice = createSlice({
   extraReducers: builder => {
     builder
       .addCase(fetchPosts.pending, (posts, action) => {
-        posts.loadingStatus = LoadingStatus.loading;
+        posts.loadingStatus = LoadingStatus.pending;
       })
       .addCase(fetchPosts.fulfilled, (posts, action) => {
-        posts.loadingStatus = LoadingStatus.succeeded;
+        posts.loadingStatus = LoadingStatus.success;
         posts.list = action.payload;
       })
       .addCase(fetchPosts.rejected, (posts, action) => {

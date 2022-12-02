@@ -3,9 +3,7 @@ import DropdownItem from './DropdownItem';
 import Icon from '../Icon/Icon';
 import { StyledDropdownMenu } from '../../../styles/DropdownMenu.styled';
 import { useAppDispatch } from '../../../store/useAppDispatch';
-import { clearUser } from '../../../features/User/userSlice';
-import axios from 'axios';
-
+import { logout } from '../../../store/auth.slice';
 
 
 const DropdownMenu = React.forwardRef((props,ref:React.Ref<HTMLDivElement>) => {
@@ -13,10 +11,7 @@ const DropdownMenu = React.forwardRef((props,ref:React.Ref<HTMLDivElement>) => {
   const dispatch = useAppDispatch();
 
   const handleLogout = async () => {
-    dispatch(clearUser());
-    localStorage.clear();
-    const res = await axios.get('http://localhost:3333/api/auth/logout')
-    console.log('res:', res);
+    dispatch(logout());
   };
 
   return (
