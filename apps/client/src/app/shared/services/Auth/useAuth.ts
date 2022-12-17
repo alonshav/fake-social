@@ -3,7 +3,7 @@ import { selectIsAuthenticated } from '../../../store/auth.slice';
 
 function useAuth() {
 
-  const isAuthenticated = useAppSelector(selectIsAuthenticated)
+  const isAuthenticated = useAppSelector(selectIsAuthenticated);
 
   return {
     isAuthenticated

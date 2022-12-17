@@ -57,7 +57,7 @@ export const selectHasUserReacted = ({ posts }: RootState, id: PostId): boolean 
 export const fetchPosts = createAsyncThunk(
   'posts/fetchPosts',
   async () => {
-    const response = await axios.get('http://localhost:3333/api/posts',{ withCredentials: true});
+    const response = await axios.get('http://localhost:3333/api/v1/posts',{ withCredentials: true});
     return response.data;
   });
 

@@ -23,6 +23,7 @@ const authSlice = createSlice({
     loadUser(auth: AuthState) {
       const currentUser = localStorage.getItem('currentUser');
       if (!currentUser) return;
+      auth.isAuthenticated = true;
       auth.user = JSON.parse(currentUser);
     }
   },
@@ -71,7 +72,7 @@ export const login = createAsyncThunk(
   'auth/login',
   async ({ nickName, password }: { nickName: string, password: string }) => {
     try {
-      const res = await axios.post('http://localhost:3333/api/auth/login',
+      const res = await axios.post('http://localhost:3333/api/v1/auth/login',
         {
           username: nickName,
           password
@@ -86,7 +87,7 @@ export const logout = createAsyncThunk(
   'auth/logout',
   async () => {
     try {
-      const res = await axios.post('http://localhost:3333/api/auth/logout');
+      const res = await axios.post('http://localhost:3333/api/v1/auth/logout');
       return res.data;
     } catch (e) {
       return e;

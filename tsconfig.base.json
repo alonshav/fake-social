@@ -18,7 +18,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@types":["./libs/api-interfaces/src/index.ts"]
+      "@types":["./libs/shared/src/shared-types/index.ts"]
     }
   },
     "exclude": [

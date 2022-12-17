@@ -4,7 +4,7 @@ const isAuthenticated = (req: express.Request, res: express.Response, next) => {
   console.log('checking isAuthenticated...')
   return req.isAuthenticated()
     ? next()
-    : res.status(401).redirect('/login');
+    : res.status(401).json({msg:'user unauthorized'});
 };
 
 export default isAuthenticated;

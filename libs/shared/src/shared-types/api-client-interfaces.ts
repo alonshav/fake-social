@@ -1,4 +1,5 @@
 import { Method } from 'axios';
+import { ReactionType, UserRole } from './db_interfaces';
 
 export interface IRequestParams {
   url: string;
@@ -57,30 +58,20 @@ export type PostsAction =
 
 export type PostId = string
 
-export interface Author {
-  nickName: string;
-  firstName: string;
-  author_id: string;
-  profilePicture?: string;
-}
-
-export type Reaction = 'like'
-
 export interface IPost {
-  author: Author;
-  title?: string;
-  topic?: string;
-  text: string;
-  image?: string;
-  ups: number;
   id: PostId;
-  createdAt: string;
-  reactions: Record<Reaction, number>;
+  author: IUser;
+  title: string;
+  topic: string;
+  text: string;
+  image: string;
+  reactions: Record<ReactionType, number>;
   isUserReacted: boolean;
+  createdAt: string;
+  updatedAt?: string;
 }
 
 export type UserId = string
-export type UserRole = 'user' | 'admin'
 
 export interface IUser {
   id: UserId;

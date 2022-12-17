@@ -62,7 +62,7 @@ authRouter.post('/register', async (req, res, next) => {
     email,
     createdAt: new Date().toISOString(),
     profilePicture: 'https://www.w3schools.com/w3css/img_lights.jpg',
-    role: 'user'
+    role: 'USER'
   };
 
   const [newLogin, newUser] = await Promise.all([createUser(user), createLogin(login)]);

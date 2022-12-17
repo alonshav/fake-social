@@ -1,11 +1,10 @@
-import * as express from 'express';
-import { POSTS } from '../mocks/POSTS';
+import { Router } from 'express';
+import postsController from '../controllers/posts.controller';
 
-const postsRouter = express.Router();
+const postsRouter = Router();
 
-postsRouter.get('/', (req, res, next) => {
-  res.send(POSTS)
-  next()
-})
+postsRouter.use(postsController.postToDbModel);
+postsRouter.get('/', postsController.getAllPosts);
+postsRouter.post('/', postsController.addPost);
 
-export default postsRouter
+export default postsRouter;

@@ -5,11 +5,9 @@ import * as passport from 'passport';
 import * as morgan from 'morgan';
 
 import { initializePassport } from './passport-config';
-import flash = require('express-flash');
-import isAuthenticated from './app/middleware/isAuthenticated';
 
-import postsRouter from './app/routes/posts.router';
-import authRouter from './app/routes/auth.router';
+import v1Router from './app/routes/v1.router';
+import flash = require('express-flash');
 
 
 const app = express();
@@ -51,9 +49,7 @@ app.use(passport.initialize());
 
 
 //Routes
-app.use('/api/posts' , isAuthenticated ,postsRouter); // add isAuthenticated Middleware
-app.use('/api/auth', authRouter);
-
+app.use('/api/v1',v1Router)
 
 const server = app.listen(port, () => {
   console.log('Listening at http://localhost:' + port);

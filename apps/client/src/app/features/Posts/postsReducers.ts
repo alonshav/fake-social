@@ -1,16 +1,19 @@
 import { PayloadAction } from '@reduxjs/toolkit';
-import { Author, IPost, PostId, PostsState, Reaction } from '@types';
+import { IPost, PostId, PostsState, Reaction } from '@types';
 import { v4 as uuid } from 'uuid';
 
 export const addPostReducer = {
   reducer(posts: PostsState, action: PayloadAction<IPost>) {
     posts.list.unshift(action.payload);
   },
-  prepare(author: Author, text: string) {
+  prepare(author: IAuthor, text: string) {
     return {
       payload: {
         author,
         text,
+        title:'',
+        topic: '',
+        image:'',
         ups: 0,
         id: uuid(),
         createdAt: new Date().toISOString(),

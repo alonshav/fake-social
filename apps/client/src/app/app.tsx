@@ -9,22 +9,23 @@ import RequireAuth from './shared/services/Auth/RequireAuth';
 import useAuth from './shared/services/Auth/useAuth';
 import NavBar from './layout/NavBar/NavBar';
 import Footer from './layout/Footer/Footer';
-import { useAppDispatch } from './store/useAppDispatch';
-import { IUser } from '@types';
 import GlobalStyles from './styles/global/GlobalStyles.styled';
 import { ThemeProvider } from 'styled-components';
 import { useAppSelector } from './store/useAppSelector';
 import { selectCurrentTheme } from './store/layout.slice';
 import UserProfile from './pages/UserProfile/UserProfile';
 import { loadUser } from './store/auth.slice';
+import { useAppDispatch } from './store/useAppDispatch';
+import { is } from 'date-fns/locale';
 
 export const App = () => {
+
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     dispatch(loadUser());
   });
 
-  const dispatch = useAppDispatch();
   const theme = useAppSelector(selectCurrentTheme);
   const { isAuthenticated } = useAuth();
 

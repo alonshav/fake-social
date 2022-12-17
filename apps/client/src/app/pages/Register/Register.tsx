@@ -49,7 +49,7 @@ function Register() { //Todo: change to useReducer
     };
 
     try {
-      const res = await axios.post('http://localhost:3333/api/auth/register', registrationData);
+      const res = await axios.post('http://localhost:3333/api/v1/auth/register', registrationData);
       console.log('res:', res);
       if (res.status === 201) {
         navigate('/login');

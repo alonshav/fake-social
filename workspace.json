@@ -3,7 +3,7 @@
   "version": 2,
   "projects": {
     "api": "apps/api",
-    "types": "libs/api-interfaces",
+    "shared": "libs/shared",
     "client": "apps/client"
   }
 }

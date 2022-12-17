@@ -22,7 +22,7 @@ function PostsList() {
   useEffect(() => {
     if (postStatus === LoadingStatus.idle)
       dispatch(fetchPosts());
-  }, [postStatus, dispatch]);
+  }, []);
 
   const handlePostClick = (postId: string) => {
     navigate(`/posts/${postId}`);
