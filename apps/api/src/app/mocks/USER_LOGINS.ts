@@ -5,7 +5,7 @@ import { USERS } from './USERS';
 export const USER_LOGINS: IUserLogin[] = [
   {
     id: '1',
-    nickName: 'Beitz',
+    nickname: 'Beitz',
     passwordHash: '$2b$10$IkvzJS3sAqRj//afFzQcSeLk3NLTSk57XQeztu/NMZtxTIIgGKtDu',
     passwordSalt: 'salt',
     RelatedUserId: '1'

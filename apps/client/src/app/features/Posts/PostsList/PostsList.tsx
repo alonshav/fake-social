@@ -17,7 +17,6 @@ function PostsList() {
   const postStatus = useAppSelector((state) => state.posts.loadingStatus);
   const error = useAppSelector((state) => state.posts.error);
 
-  const orderedPosts = posts.slice().sort((a, b) => b.createdAt.localeCompare(a.createdAt));
 
   useEffect(() => {
     if (postStatus === LoadingStatus.idle)
@@ -32,7 +31,7 @@ function PostsList() {
     if (postStatus === LoadingStatus.success) {
       return (
         <StyledPostsList className='posts-list'>
-          {orderedPosts.map((post) =>
+          {posts.map((post) =>
             <li key={post.id}>
               <Post
                 post={post}

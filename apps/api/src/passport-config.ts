@@ -8,7 +8,7 @@ import { IUserLogin } from '@types';
 export function initializePassport(passport) {
 
   const authenticateUser = async (username, password, done) => {
-    const userLogin = USER_LOGINS.find(login => login.nickName === username);
+    const userLogin = USER_LOGINS.find(login => login.nickname === username);
     const user = USERS.find(user => userLogin.RelatedUserId === user.id);
 
     if (userLogin && user) {

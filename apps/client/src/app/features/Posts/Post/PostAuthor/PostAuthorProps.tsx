@@ -4,15 +4,15 @@ import AuthorDetails from '../../../../shared/components/AuthorDetails/AuthorDet
 import { IPost } from '@types';
 import { StyledPostAuthor } from '../../../../styles/PostAuthor.styled';
 
-interface PostAuthor{
+interface PostAuthorProps {
   post:IPost
 }
 
-function PostAuthor({post}:PostAuthor) {
+function PostAuthor({post}:PostAuthorProps) {
   return (
     <StyledPostAuthor>
-      <ProfilePicture userPicture={post.author.profilePicture} userNickname={post.author.nickName} />
-      <AuthorDetails userName={post.author.firstName} userNickName={post.author.nickName} />
+      <ProfilePicture userPicture={post?.author?.profilePicture} userNickname={post?.author?.nickname} />
+      <AuthorDetails userName={post?.author?.firstname} userNickName={post?.author?.nickname} />
     </StyledPostAuthor>
   );
 }

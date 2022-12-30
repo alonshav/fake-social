@@ -3,8 +3,8 @@ import postsController from '../controllers/posts.controller';
 
 const postsRouter = Router();
 
-postsRouter.use(postsController.postToDbModel);
+
 postsRouter.get('/', postsController.getAllPosts);
-postsRouter.post('/', postsController.addPost);
+postsRouter.post('/',postsController.IPostToDbModels, postsController.addPost);
 
 export default postsRouter;

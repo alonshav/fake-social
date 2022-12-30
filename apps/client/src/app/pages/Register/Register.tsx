@@ -5,9 +5,9 @@ import { useNavigate } from 'react-router-dom';
 
 function Register() { //Todo: change to useReducer
 
-  const [nickName, setNickName] = useState('');
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
+  const [nickname, setNickName] = useState('');
+  const [firstname, setFirstName] = useState('');
+  const [lastname, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -17,13 +17,13 @@ function Register() { //Todo: change to useReducer
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { id, value } = e.target;
-    if (id === 'nickName') {
+    if (id === 'nickname') {
       setNickName(value);
     }
-    if (id === 'firstName') {
+    if (id === 'firstname') {
       setFirstName(value);
     }
-    if (id === 'lastName') {
+    if (id === 'lastname') {
       setLastName(value);
     }
     if (id === 'email') {
@@ -41,9 +41,9 @@ function Register() { //Todo: change to useReducer
     e.preventDefault();
 
     const registrationData = {
-      nickName,
-      firstName,
-      lastName,
+      nickname,
+      firstname,
+      lastname,
       email,
       password
     };
@@ -64,18 +64,18 @@ function Register() { //Todo: change to useReducer
                              onSubmit={handleSubmit}> {/*Todo: Change to Generic Form Component*/}
       <div className='form-body'>
         <div className='nickname'>
-          <label className='form__label' htmlFor='nickName'>Nickname </label>
-          <input className='form__input' type='text' value={nickName} onChange={(e) => handleInputChange(e)}
-                 id='nickName' placeholder='Nickname' required />
+          <label className='form__label' htmlFor='nickname'>Nickname </label>
+          <input className='form__input' type='text' value={nickname} onChange={(e) => handleInputChange(e)}
+                 id='nickname' placeholder='Nickname' required />
         </div>
         <div className='firstname'>
           <label className='form__label' htmlFor='firstname'>First Name </label>
-          <input type='text' name='' id='firstName' value={firstName} className='form__input'
+          <input type='text' name='' id='firstname' value={firstname} className='form__input'
                  onChange={(e) => handleInputChange(e)} placeholder='First Name' required />
         </div>
         <div className='lastname'>
-          <label className='form__label' htmlFor='lastName'>Last Name </label>
-          <input type='text' name='' id='lastName' value={lastName} className='form__input'
+          <label className='form__label' htmlFor='lastname'>Last Name </label>
+          <input type='text' name='' id='lastname' value={lastname} className='form__input'
                  onChange={(e) => handleInputChange(e)} placeholder='Last Name' required />
         </div>
         <div className='email'>

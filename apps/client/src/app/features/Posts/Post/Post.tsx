@@ -7,8 +7,8 @@ import { PostFooter } from '../../../styles/PostFooter.styled';
 import { StyledPost } from '../../../styles/Post.styled';
 import { StyledButton } from '../../../styles/Button.styled';
 import { PostTimestamp } from './PostTimeAgo/PostTimestamp';
-import PostAuthor from './PostAuthor/PostAuthor';
-import PostReactionsStatus from './PostReactionBar/PostReactionStatus';
+import PostAuthor from './PostAuthor/PostAuthorProps';
+import PostReactionsStatus from './PostReactionBar/PostReactionBar';
 
 interface PostProps {
   post: IPost;
@@ -17,7 +17,6 @@ interface PostProps {
 }
 
 function Post({ post, onPostClick, className }: PostProps) {
-
   const handlePostClick = () => {
     if (onPostClick) {
       onPostClick(post.id);
@@ -26,26 +25,26 @@ function Post({ post, onPostClick, className }: PostProps) {
 
   return (
     <StyledPost className={className && className}>
-
       <PostHeader>
-        <div className='post-details'>
+        <div className="post-details">
           <PostAuthor post={post} />
           <PostTimestamp timestamp={post.createdAt} />
         </div>
-        <StyledButton className='followButton'>+Follow</StyledButton>
+        <StyledButton className="followButton">+Follow</StyledButton>
       </PostHeader>
 
       <PostContent onClick={handlePostClick}>
-        {post.title && <h4 className='post-title'>{post.title}</h4>}
-        <p className='text-container'>{post.text}</p>
-        <div className='image-container'>{post.image && <img src={post.image} />}</div>
+        {post.title && <h4 className="post-title">{post.title}</h4>}
+        <p className="text-container">{post.text}</p>
+        <div className="image-container">
+          {post?.images?.map((image) => <img src={image}/>)}
+        </div>
       </PostContent>
 
       <PostFooter>
-        <PostReactionsStatus post={post} />
+        {post.reactions && <PostReactionsStatus post={post} />}
         <PostActionBar post={post} />
       </PostFooter>
-
     </StyledPost>
   );
 }

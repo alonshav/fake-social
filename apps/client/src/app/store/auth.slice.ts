@@ -70,11 +70,11 @@ export const selectAuthenticatedUser = ({ auth }: RootState) => auth.user;
 //Async Thunks
 export const login = createAsyncThunk(
   'auth/login',
-  async ({ nickName, password }: { nickName: string, password: string }) => {
+  async ({ nickname, password }: { nickname: string, password: string }) => {
     try {
       const res = await axios.post('http://localhost:3333/api/v1/auth/login',
         {
-          username: nickName,
+          username: nickname,
           password
         }, { withCredentials: true });
       return res.data;

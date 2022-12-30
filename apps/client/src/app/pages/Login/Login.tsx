@@ -10,7 +10,7 @@ function Login() {
   const userRef = useRef<HTMLInputElement>(null);
   const errRef = useRef(null);
 
-  const [nickName, setNickName] = useState('');
+  const [nickname, setNickName] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
 
@@ -32,11 +32,11 @@ function Login() {
 
   useEffect(() => {
     setErrorMessage('');
-  }, [nickName, password]);
+  }, [nickname, password]);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    dispatch(login({ nickName, password }));
+    dispatch(login({ nickname, password }));
   };
 
   return (
@@ -55,7 +55,7 @@ function Login() {
             ref={userRef}
             autoComplete={'off'}
             onChange={(e) => setNickName(e.target.value)}
-            value={nickName}
+            value={nickname}
             required
           />
           <label className='input-label' htmlFor={'password'}>Password</label>

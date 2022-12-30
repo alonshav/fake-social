@@ -6,6 +6,7 @@ import ProfilePicture from '../../../shared/components/ProfilePicture/ProfilePic
 import { StyledPublishPostButton } from '../../../styles/PublishAPostButton.styled';
 import { useAppSelector } from '../../../store/useAppSelector';
 import { selectAuthenticatedUser } from '../../../store/auth.slice';
+import { IUser } from '@types';
 
 
 export const AddPost = () => {
@@ -24,14 +25,7 @@ export const AddPost = () => {
   const handlePublish = () => {
     if (currentUser) {
       console.log('currentUser:', currentUser);
-      const author = {
-        nickName: currentUser.nickName,
-        firstName: currentUser.firstName,
-        profilePicture: currentUser.profilePicture,
-        author_id: currentUser.id
-      };
-      console.log('author:', author);
-      dispatch(addPost(author, 'Waduuup'));
+      dispatch(addPost(currentUser, 'Waduuup'));
     }
   };
 

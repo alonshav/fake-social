@@ -58,7 +58,7 @@ export const fetchPosts = createAsyncThunk(
   'posts/fetchPosts',
   async () => {
     const response = await axios.get('http://localhost:3333/api/v1/posts',{ withCredentials: true});
-    return response.data;
+    return response.data.posts;
   });
 
 

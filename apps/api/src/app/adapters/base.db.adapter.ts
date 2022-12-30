@@ -4,7 +4,6 @@ import { pgConfig } from '../../pg.config';
 export const pool = new Pool(pgConfig);
 
 const getAll = async (table: string) => {
-
   try {
     const query = `SELECT * FROM ${table}`;
     const res = await pool.query(query);
@@ -19,7 +18,7 @@ const getById = (table: string, id: string) => {
   try {
     const query = {
       text: 'SELECT * FROM $1 WHERE id = $2;',
-      values: [table, id]
+      values: [table, id],
     };
     pool.query(query, (error, results) => {
       if (error) {
@@ -34,7 +33,11 @@ const getById = (table: string, id: string) => {
   }
 };
 
-const updateById = async <T>(table: string, id: string, payload: Partial<T>) => {
+const updateById = async <T>(
+  table: string,
+  id: string,
+  payload: Partial<T>
+) => {
   try {
     // Extract the column names and values from the row object
     const columns = Object.keys(payload);
@@ -42,7 +45,9 @@ const updateById = async <T>(table: string, id: string, payload: Partial<T>) => 
 
     // Insert the row into the table
     const result = await pool.query(
-      `UPDATE ${table} SET ${columns.map((key, i) => `${key} = $${i + 1}`).join(', ')} WHERE id=${id}`,
+      `UPDATE ${table} SET ${columns
+        .map((key, i) => `${key} = $${i + 1}`)
+        .join(', ')} WHERE id=${id}`,
       values
     );
     console.log(`Inserted ${result.rowCount} row(s) successfully`);
@@ -56,7 +61,7 @@ const updateById = async <T>(table: string, id: string, payload: Partial<T>) => 
 const deleteById = (table: string, id: string) => {
   const query = {
     text: `DELETE FROM $1 WHERE id=$2;`,
-    values: [table, id]
+    values: [table, id],
   };
   pool.query(query, (err, results) => {
     if (err) {
@@ -80,7 +85,7 @@ const deleteAll = (table: string) => {
   });
 };
 
-const addRow = async <T>(table: string, payload: T) => {
+const addRow = async <T>(table: string, payload: T): Promise<T[]> => {
   try {
     // Extract the column names and values from the row object
     const columns = Object.keys(payload);
@@ -88,11 +93,13 @@ const addRow = async <T>(table: string, payload: T) => {
 
     // Insert the row into the table
     const result = await pool.query(
-      `INSERT INTO ${table} (${columns.join(', ')}) VALUES (${columns.map((_, i) => `$${i + 1}`).join(', ')})`,
+      `INSERT INTO ${table} (${columns.join(', ')}) VALUES (${columns
+        .map((_, i) => `$${i + 1}`)
+        .join(', ')})`,
       values
     );
     console.log(`Inserted ${result.rowCount} row(s) successfully`);
-    return result;
+    return result.rows;
   } catch (err) {
     console.error(err);
     throw new Error(`Error inserting row into table "${table}"`);
@@ -105,7 +112,5 @@ export default {
   deleteAll,
   deleteById,
   updateById,
-  addRow
+  addRow,
 };
-
-

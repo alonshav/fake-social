@@ -3,6 +3,8 @@ import { CardContent } from './CardContent.styled';
 
 export const PostContent = styled(CardContent)`
   .image-container {
+    display: flex;
+    flex-direction: column;
     width: calc(100% + 2rem);
     overflow: hidden;
 

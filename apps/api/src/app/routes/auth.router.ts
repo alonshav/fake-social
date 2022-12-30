@@ -3,7 +3,7 @@ import * as passport from 'passport';
 import * as bcrypt from 'bcrypt';
 import { v4 as uuid } from 'uuid';
 
-import { IUserLogin, IUser } from '@types';
+import { IUser, IUserLogin, UserRole } from '@types';
 import { createLogin, createUser } from '../mocks/USER_LOGINS';
 import { USERS } from '../mocks/USERS';
 
@@ -30,14 +30,14 @@ authRouter.get('/logout', (req, res, next) => {
 });
 
 authRouter.post('/register', async (req, res, next) => {
-  const { nickName, firstName, lastName, password, email } = req.body;
+  const { nickname, firstname, lastname, password, email } = req.body;
 
   const passwordHash = await bcrypt.hash(password, 10);
   const passwordSalt = await bcrypt.genSalt(10);
   const userId = uuid();
 
-  const existingNickName = USERS.find(user => (nickName === user.nickName));
-  const existingEmail = USERS.find(user => (nickName === user.nickName));
+  const existingNickName = USERS.find(user => (nickname === user.nickname));
+  const existingEmail = USERS.find(user => (nickname === user.nickname));
 
   if (existingNickName) {
     res.status(500).send('NickName already exists');
@@ -49,20 +49,19 @@ authRouter.post('/register', async (req, res, next) => {
   const login: IUserLogin = {
     id: uuid(),
     RelatedUserId: userId,
-    nickName,
+    nickname,
     passwordHash,
     passwordSalt
   };
 
   const user: IUser = {
     id: userId,
-    nickName,
-    lastName,
-    firstName,
+    nickname,
+    lastname,
+    firstname,
     email,
-    createdAt: new Date().toISOString(),
     profilePicture: 'https://www.w3schools.com/w3css/img_lights.jpg',
-    role: 'USER'
+    role: UserRole.user
   };
 
   const [newLogin, newUser] = await Promise.all([createUser(user), createLogin(login)]);

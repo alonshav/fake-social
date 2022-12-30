@@ -1,0 +1,4 @@
+{
+  "conn": "postgres://alon@localhost:5432/fake_social",
+  "output": "./libs/shared/src/shared-types/db_interfaces.ts"
+}

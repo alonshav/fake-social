@@ -1,6 +1,6 @@
 import React from 'react';
 import { PostActionBarButton } from './PostActionBarButton';
-import { IPost } from '@types';
+import { IPost, ReactionType } from '@types';
 import { useAppDispatch } from '../../../../store/useAppDispatch';
 import { selectHasUserReacted, toggleReaction } from '../../../../store/posts.slice';
 import { useAppSelector } from '../../../../store/useAppSelector';
@@ -16,7 +16,7 @@ function PostLike({ post }: PostLikeButtonProps) {
   const isUserReacted = useAppSelector((state) => selectHasUserReacted(state, post.id));
 
   const handleLikeClick = () => {
-    dispatch(toggleReaction({ id: post.id, reaction: 'like' }));
+    dispatch(toggleReaction({ id: post.id, reaction: ReactionType.like }));
   };
 
   return (
