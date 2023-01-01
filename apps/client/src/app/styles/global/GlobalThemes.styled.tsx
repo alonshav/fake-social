@@ -1,19 +1,22 @@
-export type GlobalThemes = Record<string, ITheme>
+import { ReactionType } from '@types';
+
+export type GlobalThemes = Record<string, ITheme>;
 
 export interface ITheme {
   color: {
     primary: string;
     secondary: string;
     'link-highlight': string;
-    'button-highlight': string
+    'button-highlight': string;
     active: string;
-    liked: string;
+    reactions: Record<ReactionType, string>;
   };
   fonts: { main: string };
   background: {
     navbar: string;
     footer: string;
-    body: string
+    body: string;
+    reactions: Record<ReactionType, string>;
   };
   lines: { light: string };
 }
@@ -26,22 +29,34 @@ export const globalThemes: GlobalThemes = {
       ['button-highlight']: `#e3e3e3`,
       ['link-highlight']: `#4475fa`,
       active: `rgba(0, 0, 147, 0.66)`,
-      liked: '#c71c97'
+      reactions: {
+        [ReactionType.like]: '#c2dfe5',
+        [ReactionType.celebrate]: '#d04895',
+        [ReactionType.funny]: '#c080bd',
+        [ReactionType.love]: '#c0889e',
+        [ReactionType.sad]: '#96b3d9',
+      },
     },
     background: {
       body: '#F3F2EF',
       navbar: '#ffffff',
-      footer: '#003333'
+      footer: '#003333',
+      reactions: {
+        [ReactionType.like]: '#1c66c7',
+        [ReactionType.celebrate]: '#b490a9',
+        [ReactionType.funny]: '#fecb00',
+        [ReactionType.love]: '#b698ad',
+        [ReactionType.sad]: '#112a48',
+      },
     },
     lines: {
-      'light': '#dadada'
+      light: '#dadada',
     },
     fonts: {
-      main: 'Roboto, sans-serif'
-    }
-  }
+      main: 'Roboto, sans-serif',
+    },
+  },
 };
-
 
 /*
 

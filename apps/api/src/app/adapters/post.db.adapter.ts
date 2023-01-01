@@ -58,7 +58,7 @@ const getAllPosts = async (): Promise<IPost[]> => {
         topic: '',
         reactions: postReactions,
         author: postAuthor,
-        createdAt: post.createdAt,
+        createdAt: post.created_at,
         images: post.post_images?.split(', '),
         updatedAt: post.updatedAt,
         isUserReacted: false,

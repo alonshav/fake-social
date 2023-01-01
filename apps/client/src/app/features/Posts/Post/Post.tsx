@@ -23,6 +23,10 @@ function Post({ post, onPostClick, className }: PostProps) {
     }
   };
 
+  const hasReactions = (): boolean => {
+    return !!Object.values(post.reactions).find((count) => count > 0);
+  };
+
   return (
     <StyledPost className={className && className}>
       <PostHeader>
@@ -37,12 +41,14 @@ function Post({ post, onPostClick, className }: PostProps) {
         {post.title && <h4 className="post-title">{post.title}</h4>}
         <p className="text-container">{post.text}</p>
         <div className="image-container">
-          {post?.images?.map((image) => <img src={image}/>)}
+          {post?.images?.map((image) => (
+            <img src={image} />
+          ))}
         </div>
       </PostContent>
 
       <PostFooter>
-        {post.reactions && <PostReactionsStatus post={post} />}
+        {hasReactions() && <PostReactionsStatus post={post} />}
         <PostActionBar post={post} />
       </PostFooter>
     </StyledPost>
