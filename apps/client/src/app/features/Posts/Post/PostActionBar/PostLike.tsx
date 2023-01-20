@@ -2,7 +2,7 @@ import React from 'react';
 import { PostActionBarButton } from './PostActionBarButton';
 import { IPost, ReactionType } from '@types';
 import { useAppDispatch } from '../../../../store/useAppDispatch';
-import { selectHasUserReacted, toggleReaction } from '../../../../store/posts.slice';
+import { selectHasUserReacted, toggleReaction } from '../../../../store/posts/posts.slice';
 import { useAppSelector } from '../../../../store/useAppSelector';
 
 interface PostLikeButtonProps {

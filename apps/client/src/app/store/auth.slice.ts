@@ -1,68 +1,66 @@
-import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { AuthState, IUser, LoadingStatus } from '@types';
-import axios from 'axios';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { AuthState, FetchingStatus } from '@types';
 import { RootState } from './root.store';
-import { globalThemes } from '../styles/global/GlobalThemes.styled';
-import { LayoutState } from './layout.slice';
+import axios from 'axios';
 
 
 const initialState: AuthState =
   {
     user: null,
-    loadingStatus: LoadingStatus.idle,
+    fetchingStatus: FetchingStatus.idle,
     isAuthenticated: false,
     error: null
   };
-
 
 // Slice
 const authSlice = createSlice({
   name: 'auth',
   initialState,
-  reducers: {
-    loadUser(auth: AuthState) {
-      const currentUser = localStorage.getItem('currentUser');
-      if (!currentUser) return;
-      auth.isAuthenticated = true;
-      auth.user = JSON.parse(currentUser);
-    }
-  },
+  reducers: {},
   extraReducers: builder => {
     builder
+
+      // login
       .addCase(login.pending, (auth, action) => {
-        auth.loadingStatus = LoadingStatus.pending;
+        auth.fetchingStatus = FetchingStatus.pending;
       })
       .addCase(login.fulfilled, (auth, action) => {
         auth.user = action.payload;
-        localStorage.setItem('currentUser', JSON.stringify(auth.user));
         auth.isAuthenticated = true;
-        auth.loadingStatus = LoadingStatus.success;
+        auth.fetchingStatus = FetchingStatus.success;
       })
       .addCase(login.rejected, (auth, action) => {
-        auth.loadingStatus = LoadingStatus.failed;
+        auth.fetchingStatus = FetchingStatus.failed;
         if (action.error.message) auth.error = action.error.message;
       })
+
+      // logout
       .addCase(logout.pending, (auth, action) => {
-        auth.loadingStatus = LoadingStatus.pending;
+        auth.fetchingStatus = FetchingStatus.pending;
       })
       .addCase(logout.fulfilled, (auth, action) => {
         auth.user = null;
         auth.isAuthenticated = false;
-        localStorage.clear();
-        auth.loadingStatus = LoadingStatus.success;
+        auth.fetchingStatus = FetchingStatus.success;
       })
       .addCase(logout.rejected, (auth, action) => {
-        auth.loadingStatus = LoadingStatus.failed;
-      });
+        auth.fetchingStatus = FetchingStatus.failed;
+      })
+
+      // loadUser
+      .addCase(loadUser.fulfilled, (auth, action) => {
+        auth.user = action.payload
+        auth.isAuthenticated = true;
+        auth.fetchingStatus = FetchingStatus.success
+      })
+      .addCase(loadUser.rejected, (auth) => {
+        auth.fetchingStatus = FetchingStatus.failed
+      })
   }
 });
 
-//Actions
-export const {loadUser} = authSlice.actions;
-
-
 //Selectors
-export const selectLoginStatus = ({ auth }: RootState) => auth.loadingStatus;
+export const selectLoginStatus = ({ auth }: RootState) => auth.fetchingStatus;
 export const selectIsAuthenticated = ({ auth }: RootState) => auth.isAuthenticated;
 export const selectAuthenticatedUser = ({ auth }: RootState) => auth.user;
 
@@ -82,6 +80,18 @@ export const login = createAsyncThunk(
       return e;
     }
   });
+
+export const loadUser = createAsyncThunk(
+  'auth/loadUser',
+  async () => {
+    try {
+      const res = await axios.get('http://localhost:3333/api/v1/auth/user');
+      return res.data;
+    } catch (e) {
+      return e;
+    }
+  }
+)
 
 export const logout = createAsyncThunk(
   'auth/logout',

@@ -2,10 +2,10 @@ import React, { useEffect } from 'react';
 import Post from '../Post/Post';
 import { StyledPostsList } from '../../../styles/Posts.styled';
 import { useAppSelector } from '../../../store/useAppSelector';
-import { fetchPosts, selectAllPosts } from '../../../store/posts.slice';
+import { fetchPosts, selectAllPosts } from '../../../store/posts/posts.slice';
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch } from '../../../store/useAppDispatch';
-import { LoadingStatus } from '@types';
+import { FetchingStatus } from '@types';
 
 
 function PostsList() {
@@ -19,7 +19,6 @@ function PostsList() {
 
 
   useEffect(() => {
-    if (postStatus === LoadingStatus.idle)
       dispatch(fetchPosts());
   }, []);
 
@@ -28,7 +27,7 @@ function PostsList() {
   };
 
   const renderList = () => {
-    if (postStatus === LoadingStatus.success) {
+    if (postStatus === FetchingStatus.success) {
       return (
         <StyledPostsList className='posts-list'>
           {posts.map((post) =>
@@ -40,10 +39,10 @@ function PostsList() {
         </StyledPostsList>
       );
     }
-    if (postStatus === LoadingStatus.failed) {
+    if (postStatus === FetchingStatus.failed) {
       return <p>{error}</p>;
     }
-    if (postStatus === LoadingStatus.pending) {
+    if (postStatus === FetchingStatus.pending) {
       return <h1>loading...</h1>;
     }
     return null;

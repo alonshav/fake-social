@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 
 interface ProfilePictureProps {
   userPicture: string | undefined;
-  userNickname: string;
+  userNickname: string | undefined;
 }
 
 function ProfilePicture({ userPicture, userNickname }: ProfilePictureProps) {

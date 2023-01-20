@@ -1,22 +1,17 @@
+import MyProfile from './MyProfile/MyProfile';
+import React from 'react';
 
 export interface ISideBarCard {
-  title: string,
+  title: string;
+  component: React.FC
 }
 
 export const LeftSideBarMenu: ISideBarCard[] = [
   {
     title: 'My Profile',
-  },
-  {
-    title: 'Recent',
-  },
-  {
-    title: 'Groups',
+    component: MyProfile,
   },
 ];
 
 export const RightSideBarMenu: ISideBarCard[] = [
-  {
-    title: 'Add to your feed',
-  },
 ];

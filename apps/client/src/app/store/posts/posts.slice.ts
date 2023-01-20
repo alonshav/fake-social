@@ -1,14 +1,14 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { RootState } from './root.store';
-import { addPostReducer, toggleReactionReducer } from '../features/Posts/postsReducers';
-import { LoadingStatus, PostId, PostsState } from '@types';
+import { RootState } from '../root.store';
+import { addPostReducer, toggleReactionReducer } from './posts.reducers';
+import { FetchingStatus, PostId, PostsState } from '@types';
 import axios from 'axios';
 
 
 const initialState: PostsState =
   {
     list: [],
-    loadingStatus: LoadingStatus.idle,
+    loadingStatus: FetchingStatus.idle,
     error: null
   };
 
@@ -24,14 +24,14 @@ const postsSlice = createSlice({
   extraReducers: builder => {
     builder
       .addCase(fetchPosts.pending, (posts, action) => {
-        posts.loadingStatus = LoadingStatus.pending;
+        posts.loadingStatus = FetchingStatus.pending;
       })
       .addCase(fetchPosts.fulfilled, (posts, action) => {
-        posts.loadingStatus = LoadingStatus.success;
+        posts.loadingStatus = FetchingStatus.success;
         posts.list = action.payload;
       })
       .addCase(fetchPosts.rejected, (posts, action) => {
-        posts.loadingStatus = LoadingStatus.failed;
+        posts.loadingStatus = FetchingStatus.failed;
         if (action.error.message) posts.error = action.error.message;
       });
   }

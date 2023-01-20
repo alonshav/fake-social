@@ -17,14 +17,14 @@ export interface IAjaxAdapter {
 }
 
 export interface IAjaxResponse<T> {
-  response: T;
+  data: T;
   error: any;
 }
 
 export type AxiosRequestHeaders = Record<string, string>;
 
 export type FetchState = {
-  loadingStatus: LoadingStatus;
+  loadingStatus: FetchingStatus;
   data?: any;
   error?: string | null;
 };
@@ -34,7 +34,7 @@ export type FetchAction =
   | { type: 'RESOLVE'; payload: any }
   | { type: 'REJECT'; error: string };
 
-export enum LoadingStatus {
+export enum FetchingStatus {
   pending = 'PENDING',
   success = 'SUCCEEDED',
   failed = 'FAILED',
@@ -43,7 +43,7 @@ export enum LoadingStatus {
 
 export type PostsState = {
   list: IPost[];
-  loadingStatus: LoadingStatus;
+  loadingStatus: FetchingStatus;
   error: string | null;
 };
 
@@ -117,7 +117,7 @@ interface PostComment {
 
 export interface AuthState {
   user: IUser | null;
-  loadingStatus: LoadingStatus;
+  fetchingStatus: FetchingStatus;
   isAuthenticated: boolean;
   error: string | null;
 }

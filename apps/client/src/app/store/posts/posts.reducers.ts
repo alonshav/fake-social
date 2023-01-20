@@ -41,11 +41,11 @@ export const toggleReactionReducer = (
   if (!selectedPost) return posts;
 
   if (selectedPost.isUserReacted) {
+    selectedPost.reactions[reaction]--;
     selectedPost.isUserReacted = false;
-    selectedPost.reactions[reaction] = 1;
   } else {
+    selectedPost.reactions[reaction]++;
     selectedPost.isUserReacted = true;
-    selectedPost.reactions[reaction] = 0;
   }
 
   return posts;

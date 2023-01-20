@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import { CardHeaderStyled } from './CardHeader.styled';
+import { CardHeader } from './CardHeader.styled';
 
-export const PostHeader = styled(CardHeaderStyled)`
+export const PostHeader = styled(CardHeader)`
   margin-bottom: 10px;
 
   .followButton {

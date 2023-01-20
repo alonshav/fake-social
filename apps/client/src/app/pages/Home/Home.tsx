@@ -1,12 +1,11 @@
-import NavBar from '../../layout/NavBar/NavBar';
 import Feed from '../../layout/Feed/Feed';
-import Footer from '../../layout/Footer/Footer';
 import { HomeGridContainer } from '../../styles/HomeGridContainer.styled';
-import React from 'react';
-import LeftSideBar from '../../layout/SideBar/LeftSideBar';
-import RightSideBar from '../../layout/SideBar/RightSideBar';
+import React, { useEffect } from 'react';
+import LeftSideBar from '../../layout/SideBar/LeftSideBar/LeftSideBar';
+import RightSideBar from '../../layout/SideBar/RightSideBar/RightSideBar';
 
 const Home = () => {
+
   return (
     <>
       <HomeGridContainer>

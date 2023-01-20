@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const CardHeaderStyled = styled.div`
+export const CardHeader = styled.div`
   width: 100%;
   display: flex;
   flex-grow: 1;

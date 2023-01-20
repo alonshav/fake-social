@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyledAuthorDetails } from '../../../styles/UserDetails.styled';
+import { StyledAuthorDetails } from '../../../../styles/UserDetails.styled';
 import { Link } from 'react-router-dom';
 
 interface UserDetailsProps {

@@ -1,12 +1,11 @@
 import React from 'react';
 import { StyledAddPostCard } from '../../../styles/AddPostsForm.Styled';
 import { useAppDispatch } from '../../../store/useAppDispatch';
-import { addPost } from '../../../store/posts.slice';
+import { addPost } from '../../../store/posts/posts.slice';
 import ProfilePicture from '../../../shared/components/ProfilePicture/ProfilePicture';
 import { StyledPublishPostButton } from '../../../styles/PublishAPostButton.styled';
 import { useAppSelector } from '../../../store/useAppSelector';
 import { selectAuthenticatedUser } from '../../../store/auth.slice';
-import { IUser } from '@types';
 
 
 export const AddPost = () => {
