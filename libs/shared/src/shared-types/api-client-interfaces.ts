@@ -24,7 +24,7 @@ export interface IAjaxResponse<T> {
 export type AxiosRequestHeaders = Record<string, string>;
 
 export type FetchState = {
-  loadingStatus: FetchingStatus;
+  fetchingStatus: FetchingStatus;
   data?: any;
   error?: string | null;
 };

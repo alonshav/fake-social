@@ -5,7 +5,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import SinglePost from './pages/SinglePost/SinglePost';
 import Register from './pages/Register/Register';
 import Layout from './layout/Layout/Layout';
-import RequireAuth from './services/RequireAuth';
+import RequireAuth from './shared/components/RequireAuth';
 import GlobalStyles from './styles/global/GlobalStyles.styled';
 import { ThemeProvider } from 'styled-components';
 import { useAppSelector } from './store/useAppSelector';
