@@ -1,9 +1,7 @@
 {
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
   "npmScope": "fake-social",
-  "affected": {
-    "defaultBase": "main"
-  },
+  "defaultBase": "main",
   "tasksRunnerOptions": {
     "default": {
       "runner": "@nrwl/nx-cloud",
